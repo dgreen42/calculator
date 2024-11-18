@@ -17,26 +17,34 @@ enum eItem {
 	GROUP,
 };
 
+
+struct Character {
+	char content;
+	char* after[128];
+};
+
+struct Modifier {
+	char content;
+	char* after[128];
+};
+
+struct Expression {
+	char first;
+	char opp;
+	char second;
+	char* after[128];
+};
+
 struct Group {
 	char open;
 	char close;
 	char* expression[64];
 };
 
-struct Character {
-	char content;
-	char* after[256];
-};
-
-struct Modifier {
-	char content;
-	char* after[256];
-};
-
 struct Item {
 	char content;
-	char *content_group[256];
-	char *after[256];
+	char *content_group[128];
+	char *after[128];
 };
 
 int is_number(char** c) {
@@ -63,37 +71,76 @@ int is_symbol(char** c) {
 	}
 }
 
-
 struct Character *character(char** exp) {
-	struct Character *ch = (struct Character *)malloc(sizeof(struct Character));
-	if (!ch) {
-		printf("Failed to allocate memory for character");
-		exit(-1);
-	}
 	
 	if (is_number(&exp[0]) == 1) {
+		struct Character *ch = (struct Character *)malloc(sizeof(struct Character));
+		if (!ch) {
+			printf("Failed to allocate memory for character");
+			exit(-1);
+		}
 		ch->content = *exp[0];
 		char* after = *exp + 1;
 		memcpy(ch->after, &after, sizeof(after));
+		return ch;
 	}
 
-	return ch;
+	return NULL;
 }
 
 struct Modifier *modifier(char** exp) {
-	struct Modifier *mod = (struct Modifier *)malloc(sizeof(struct Modifier));
-	if (!mod) {
-		printf("Failed to allocate memory modifier");
-		exit(-1);
-	}
 	
 	if (is_symbol(&exp[0]) == 1) {
+		struct Modifier *mod = (struct Modifier *)malloc(sizeof(struct Modifier));
+		if (!mod) {
+			printf("Failed to allocate memory for modifier");
+			exit(-1);
+		}
 		mod->content = *exp[0];
 		char* after = *exp + 1;
 		memcpy(mod->after, &after, sizeof(after));
+		return mod;
 	}
 
-	return mod;
+	return NULL;
+}
+
+struct Expression *expression(char** exp) {
+	printf("%c", *exp[0]);
+	if (is_number(&exp[0]) == 1) {
+		if (is_symbol(&exp[1]) == 1) {
+			if (is_number(&exp[2]) == 1) {
+				struct Expression *expr = (struct Expression *)malloc(sizeof(struct Expression));
+				expr->first = *exp[0];
+				expr->opp = *exp[1];
+				expr->second = *exp[2];
+				char* after = *exp + 3;
+				memcpy(expr->after, &after, sizeof(after));
+
+				return expr;
+			}
+			//check if it is a paren
+		}
+		//check if it is a paren
+	}
+	return NULL;
+}
+
+/*
+struct Group *group(char** exp) {
+	struct Group *grp = (struct Group *)malloc(sizeof(struct Group));
+	if (!grp) {
+		printf("Failed to allocate memory for group");
+		exit(-1);
+	}
+
+	if (*exp[0] == *"(") {
+		if (!expression(exp)) {
+			if (*exp[0]+4 == *")") { //come back to this
+				return grp;
+			}
+		}
+	}
 }
 
 struct Item *item() {
@@ -102,29 +149,26 @@ struct Item *item() {
 		printf("Failed to allocate memory for item");
 		exit(-1);
 	}
-
-	if (is_goup == 1) {
+	if () {
 		//parse as group
 	} else {
 		//parse as character
 	}
 }
+*/
 
+void parser(char** exp) {
+	
+}
 
 int main() {
 	char *simple_case = "1+2";
 	char *ordered_case = "4+6/2";
-	char *bracket_case = "2+(3-1)";
+	char *bracket_case1 = "(3-1)";
+	char *bracket_case2 = "2+(3-1)";
 
-	struct Character *this = character(&simple_case);
-	printf("%c\n", this->content);
-	printf("%s\n", *this->after);
-	
-	/*
-	struct Character *test = (struct Character *)malloc(sizeof(struct Character));
-	char *t = "this";
-	char *after = t+1;
-	memcpy(test->after, &after, sizeof(after));
-	printf("%s\n", *test->after);
-	*/
+	struct Expression *expr = expression(&simple_case);
+
+
 }
+
