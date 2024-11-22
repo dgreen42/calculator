@@ -1,0 +1,2674 @@
+
+a.out:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000001000 <_init>:
+    1000:	48 83 ec 08          	sub    $0x8,%rsp
+    1004:	48 8b 05 c5 2f 00 00 	mov    0x2fc5(%rip),%rax        # 3fd0 <__gmon_start__@Base>
+    100b:	48 85 c0             	test   %rax,%rax
+    100e:	74 02                	je     1012 <_init+0x12>
+    1010:	ff d0                	call   *%rax
+    1012:	48 83 c4 08          	add    $0x8,%rsp
+    1016:	c3                   	ret
+
+Disassembly of section .plt:
+
+0000000000001020 <free@plt-0x10>:
+    1020:	ff 35 ca 2f 00 00    	push   0x2fca(%rip)        # 3ff0 <_GLOBAL_OFFSET_TABLE_+0x8>
+    1026:	ff 25 cc 2f 00 00    	jmp    *0x2fcc(%rip)        # 3ff8 <_GLOBAL_OFFSET_TABLE_+0x10>
+    102c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000001030 <free@plt>:
+    1030:	ff 25 ca 2f 00 00    	jmp    *0x2fca(%rip)        # 4000 <free@GLIBC_2.2.5>
+    1036:	68 00 00 00 00       	push   $0x0
+    103b:	e9 e0 ff ff ff       	jmp    1020 <_init+0x20>
+
+0000000000001040 <strlen@plt>:
+    1040:	ff 25 c2 2f 00 00    	jmp    *0x2fc2(%rip)        # 4008 <strlen@GLIBC_2.2.5>
+    1046:	68 01 00 00 00       	push   $0x1
+    104b:	e9 d0 ff ff ff       	jmp    1020 <_init+0x20>
+
+0000000000001050 <printf@plt>:
+    1050:	ff 25 ba 2f 00 00    	jmp    *0x2fba(%rip)        # 4010 <printf@GLIBC_2.2.5>
+    1056:	68 02 00 00 00       	push   $0x2
+    105b:	e9 c0 ff ff ff       	jmp    1020 <_init+0x20>
+
+0000000000001060 <memcpy@plt>:
+    1060:	ff 25 b2 2f 00 00    	jmp    *0x2fb2(%rip)        # 4018 <memcpy@GLIBC_2.14>
+    1066:	68 03 00 00 00       	push   $0x3
+    106b:	e9 b0 ff ff ff       	jmp    1020 <_init+0x20>
+
+0000000000001070 <malloc@plt>:
+    1070:	ff 25 aa 2f 00 00    	jmp    *0x2faa(%rip)        # 4020 <malloc@GLIBC_2.2.5>
+    1076:	68 04 00 00 00       	push   $0x4
+    107b:	e9 a0 ff ff ff       	jmp    1020 <_init+0x20>
+
+0000000000001080 <exit@plt>:
+    1080:	ff 25 a2 2f 00 00    	jmp    *0x2fa2(%rip)        # 4028 <exit@GLIBC_2.2.5>
+    1086:	68 05 00 00 00       	push   $0x5
+    108b:	e9 90 ff ff ff       	jmp    1020 <_init+0x20>
+
+Disassembly of section .plt.got:
+
+0000000000001090 <__cxa_finalize@plt>:
+    1090:	ff 25 4a 2f 00 00    	jmp    *0x2f4a(%rip)        # 3fe0 <__cxa_finalize@GLIBC_2.2.5>
+    1096:	66 90                	xchg   %ax,%ax
+
+Disassembly of section .text:
+
+00000000000010a0 <_start>:
+    10a0:	31 ed                	xor    %ebp,%ebp
+    10a2:	49 89 d1             	mov    %rdx,%r9
+    10a5:	5e                   	pop    %rsi
+    10a6:	48 89 e2             	mov    %rsp,%rdx
+    10a9:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
+    10ad:	50                   	push   %rax
+    10ae:	54                   	push   %rsp
+    10af:	45 31 c0             	xor    %r8d,%r8d
+    10b2:	31 c9                	xor    %ecx,%ecx
+    10b4:	48 8d 3d db 0a 00 00 	lea    0xadb(%rip),%rdi        # 1b96 <main>
+    10bb:	ff 15 ff 2e 00 00    	call   *0x2eff(%rip)        # 3fc0 <__libc_start_main@GLIBC_2.34>
+    10c1:	f4                   	hlt
+    10c2:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+    10c9:	00 00 00 
+    10cc:	0f 1f 40 00          	nopl   0x0(%rax)
+
+00000000000010d0 <deregister_tm_clones>:
+    10d0:	48 8d 3d 69 2f 00 00 	lea    0x2f69(%rip),%rdi        # 4040 <__TMC_END__>
+    10d7:	48 8d 05 62 2f 00 00 	lea    0x2f62(%rip),%rax        # 4040 <__TMC_END__>
+    10de:	48 39 f8             	cmp    %rdi,%rax
+    10e1:	74 15                	je     10f8 <deregister_tm_clones+0x28>
+    10e3:	48 8b 05 de 2e 00 00 	mov    0x2ede(%rip),%rax        # 3fc8 <_ITM_deregisterTMCloneTable@Base>
+    10ea:	48 85 c0             	test   %rax,%rax
+    10ed:	74 09                	je     10f8 <deregister_tm_clones+0x28>
+    10ef:	ff e0                	jmp    *%rax
+    10f1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    10f8:	c3                   	ret
+    10f9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001100 <register_tm_clones>:
+    1100:	48 8d 3d 39 2f 00 00 	lea    0x2f39(%rip),%rdi        # 4040 <__TMC_END__>
+    1107:	48 8d 35 32 2f 00 00 	lea    0x2f32(%rip),%rsi        # 4040 <__TMC_END__>
+    110e:	48 29 fe             	sub    %rdi,%rsi
+    1111:	48 89 f0             	mov    %rsi,%rax
+    1114:	48 c1 ee 3f          	shr    $0x3f,%rsi
+    1118:	48 c1 f8 03          	sar    $0x3,%rax
+    111c:	48 01 c6             	add    %rax,%rsi
+    111f:	48 d1 fe             	sar    %rsi
+    1122:	74 14                	je     1138 <register_tm_clones+0x38>
+    1124:	48 8b 05 ad 2e 00 00 	mov    0x2ead(%rip),%rax        # 3fd8 <_ITM_registerTMCloneTable@Base>
+    112b:	48 85 c0             	test   %rax,%rax
+    112e:	74 08                	je     1138 <register_tm_clones+0x38>
+    1130:	ff e0                	jmp    *%rax
+    1132:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    1138:	c3                   	ret
+    1139:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001140 <__do_global_dtors_aux>:
+    1140:	f3 0f 1e fa          	endbr64
+    1144:	80 3d f5 2e 00 00 00 	cmpb   $0x0,0x2ef5(%rip)        # 4040 <__TMC_END__>
+    114b:	75 2b                	jne    1178 <__do_global_dtors_aux+0x38>
+    114d:	55                   	push   %rbp
+    114e:	48 83 3d 8a 2e 00 00 	cmpq   $0x0,0x2e8a(%rip)        # 3fe0 <__cxa_finalize@GLIBC_2.2.5>
+    1155:	00 
+    1156:	48 89 e5             	mov    %rsp,%rbp
+    1159:	74 0c                	je     1167 <__do_global_dtors_aux+0x27>
+    115b:	48 8b 3d d6 2e 00 00 	mov    0x2ed6(%rip),%rdi        # 4038 <__dso_handle>
+    1162:	e8 29 ff ff ff       	call   1090 <__cxa_finalize@plt>
+    1167:	e8 64 ff ff ff       	call   10d0 <deregister_tm_clones>
+    116c:	c6 05 cd 2e 00 00 01 	movb   $0x1,0x2ecd(%rip)        # 4040 <__TMC_END__>
+    1173:	5d                   	pop    %rbp
+    1174:	c3                   	ret
+    1175:	0f 1f 00             	nopl   (%rax)
+    1178:	c3                   	ret
+    1179:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001180 <frame_dummy>:
+    1180:	f3 0f 1e fa          	endbr64
+    1184:	e9 77 ff ff ff       	jmp    1100 <register_tm_clones>
+
+0000000000001189 <is_number>:
+    1189:	55                   	push   %rbp
+    118a:	48 89 e5             	mov    %rsp,%rbp
+    118d:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+    1191:	48 83 7d f8 00       	cmpq   $0x0,-0x8(%rbp)
+    1196:	75 07                	jne    119f <is_number+0x16>
+    1198:	b8 00 00 00 00       	mov    $0x0,%eax
+    119d:	eb 21                	jmp    11c0 <is_number+0x37>
+    119f:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    11a3:	48 8b 00             	mov    (%rax),%rax
+    11a6:	0f b6 00             	movzbl (%rax),%eax
+    11a9:	0f be c0             	movsbl %al,%eax
+    11ac:	83 e8 31             	sub    $0x31,%eax
+    11af:	83 f8 08             	cmp    $0x8,%eax
+    11b2:	77 07                	ja     11bb <is_number+0x32>
+    11b4:	b8 01 00 00 00       	mov    $0x1,%eax
+    11b9:	eb 05                	jmp    11c0 <is_number+0x37>
+    11bb:	b8 00 00 00 00       	mov    $0x0,%eax
+    11c0:	5d                   	pop    %rbp
+    11c1:	c3                   	ret
+
+00000000000011c2 <is_symbol>:
+    11c2:	55                   	push   %rbp
+    11c3:	48 89 e5             	mov    %rsp,%rbp
+    11c6:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+    11ca:	48 83 7d f8 00       	cmpq   $0x0,-0x8(%rbp)
+    11cf:	75 07                	jne    11d8 <is_symbol+0x16>
+    11d1:	b8 00 00 00 00       	mov    $0x0,%eax
+    11d6:	eb 42                	jmp    121a <is_symbol+0x58>
+    11d8:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    11dc:	48 8b 00             	mov    (%rax),%rax
+    11df:	0f b6 00             	movzbl (%rax),%eax
+    11e2:	0f be c0             	movsbl %al,%eax
+    11e5:	83 f8 2f             	cmp    $0x2f,%eax
+    11e8:	0f 97 c2             	seta   %dl
+    11eb:	84 d2                	test   %dl,%dl
+    11ed:	75 26                	jne    1215 <is_symbol+0x53>
+    11ef:	48 ba 00 00 00 00 00 	movabs $0xac0000000000,%rdx
+    11f6:	ac 00 00 
+    11f9:	89 c1                	mov    %eax,%ecx
+    11fb:	48 d3 ea             	shr    %cl,%rdx
+    11fe:	48 89 d0             	mov    %rdx,%rax
+    1201:	83 e0 01             	and    $0x1,%eax
+    1204:	48 85 c0             	test   %rax,%rax
+    1207:	0f 95 c0             	setne  %al
+    120a:	84 c0                	test   %al,%al
+    120c:	74 07                	je     1215 <is_symbol+0x53>
+    120e:	b8 01 00 00 00       	mov    $0x1,%eax
+    1213:	eb 05                	jmp    121a <is_symbol+0x58>
+    1215:	b8 00 00 00 00       	mov    $0x0,%eax
+    121a:	5d                   	pop    %rbp
+    121b:	c3                   	ret
+
+000000000000121c <number>:
+    121c:	55                   	push   %rbp
+    121d:	48 89 e5             	mov    %rsp,%rbp
+    1220:	48 83 ec 20          	sub    $0x20,%rsp
+    1224:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+    1228:	48 83 7d e8 00       	cmpq   $0x0,-0x18(%rbp)
+    122d:	75 1e                	jne    124d <number+0x31>
+    122f:	48 8d 05 d2 0d 00 00 	lea    0xdd2(%rip),%rax        # 2008 <_IO_stdin_used+0x8>
+    1236:	48 89 c7             	mov    %rax,%rdi
+    1239:	b8 00 00 00 00       	mov    $0x0,%eax
+    123e:	e8 0d fe ff ff       	call   1050 <printf@plt>
+    1243:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    1248:	e8 33 fe ff ff       	call   1080 <exit@plt>
+    124d:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+    1251:	48 89 c7             	mov    %rax,%rdi
+    1254:	e8 30 ff ff ff       	call   1189 <is_number>
+    1259:	83 f8 01             	cmp    $0x1,%eax
+    125c:	0f 85 a9 00 00 00    	jne    130b <number+0xef>
+    1262:	bf 10 00 00 00       	mov    $0x10,%edi
+    1267:	e8 04 fe ff ff       	call   1070 <malloc@plt>
+    126c:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+    1270:	48 83 7d f8 00       	cmpq   $0x0,-0x8(%rbp)
+    1275:	75 1e                	jne    1295 <number+0x79>
+    1277:	48 8d 05 aa 0d 00 00 	lea    0xdaa(%rip),%rax        # 2028 <_IO_stdin_used+0x28>
+    127e:	48 89 c7             	mov    %rax,%rdi
+    1281:	b8 00 00 00 00       	mov    $0x0,%eax
+    1286:	e8 c5 fd ff ff       	call   1050 <printf@plt>
+    128b:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    1290:	e8 eb fd ff ff       	call   1080 <exit@plt>
+    1295:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+    1299:	48 8b 00             	mov    (%rax),%rax
+    129c:	0f b6 10             	movzbl (%rax),%edx
+    129f:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    12a3:	88 10                	mov    %dl,(%rax)
+    12a5:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+    12a9:	48 8b 00             	mov    (%rax),%rax
+    12ac:	48 83 c0 01          	add    $0x1,%rax
+    12b0:	48 89 45 f0          	mov    %rax,-0x10(%rbp)
+    12b4:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    12b8:	48 89 c7             	mov    %rax,%rdi
+    12bb:	e8 80 fd ff ff       	call   1040 <strlen@plt>
+    12c0:	48 89 c2             	mov    %rax,%rdx
+    12c3:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    12c7:	48 8b 40 08          	mov    0x8(%rax),%rax
+    12cb:	48 8d 4d f0          	lea    -0x10(%rbp),%rcx
+    12cf:	48 89 ce             	mov    %rcx,%rsi
+    12d2:	48 89 c7             	mov    %rax,%rdi
+    12d5:	e8 86 fd ff ff       	call   1060 <memcpy@plt>
+    12da:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    12de:	48 8b 40 08          	mov    0x8(%rax),%rax
+    12e2:	48 85 c0             	test   %rax,%rax
+    12e5:	75 1e                	jne    1305 <number+0xe9>
+    12e7:	48 8d 05 62 0d 00 00 	lea    0xd62(%rip),%rax        # 2050 <_IO_stdin_used+0x50>
+    12ee:	48 89 c7             	mov    %rax,%rdi
+    12f1:	b8 00 00 00 00       	mov    $0x0,%eax
+    12f6:	e8 55 fd ff ff       	call   1050 <printf@plt>
+    12fb:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    1300:	e8 7b fd ff ff       	call   1080 <exit@plt>
+    1305:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    1309:	eb 05                	jmp    1310 <number+0xf4>
+    130b:	b8 00 00 00 00       	mov    $0x0,%eax
+    1310:	c9                   	leave
+    1311:	c3                   	ret
+
+0000000000001312 <modifier>:
+    1312:	55                   	push   %rbp
+    1313:	48 89 e5             	mov    %rsp,%rbp
+    1316:	48 83 ec 20          	sub    $0x20,%rsp
+    131a:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+    131e:	48 83 7d e8 00       	cmpq   $0x0,-0x18(%rbp)
+    1323:	75 1e                	jne    1343 <modifier+0x31>
+    1325:	48 8d 05 5c 0d 00 00 	lea    0xd5c(%rip),%rax        # 2088 <_IO_stdin_used+0x88>
+    132c:	48 89 c7             	mov    %rax,%rdi
+    132f:	b8 00 00 00 00       	mov    $0x0,%eax
+    1334:	e8 17 fd ff ff       	call   1050 <printf@plt>
+    1339:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    133e:	e8 3d fd ff ff       	call   1080 <exit@plt>
+    1343:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+    1347:	48 89 c7             	mov    %rax,%rdi
+    134a:	e8 73 fe ff ff       	call   11c2 <is_symbol>
+    134f:	83 f8 01             	cmp    $0x1,%eax
+    1352:	0f 85 a9 00 00 00    	jne    1401 <modifier+0xef>
+    1358:	bf 10 00 00 00       	mov    $0x10,%edi
+    135d:	e8 0e fd ff ff       	call   1070 <malloc@plt>
+    1362:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+    1366:	48 83 7d f8 00       	cmpq   $0x0,-0x8(%rbp)
+    136b:	75 1e                	jne    138b <modifier+0x79>
+    136d:	48 8d 05 34 0d 00 00 	lea    0xd34(%rip),%rax        # 20a8 <_IO_stdin_used+0xa8>
+    1374:	48 89 c7             	mov    %rax,%rdi
+    1377:	b8 00 00 00 00       	mov    $0x0,%eax
+    137c:	e8 cf fc ff ff       	call   1050 <printf@plt>
+    1381:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    1386:	e8 f5 fc ff ff       	call   1080 <exit@plt>
+    138b:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+    138f:	48 8b 00             	mov    (%rax),%rax
+    1392:	0f b6 10             	movzbl (%rax),%edx
+    1395:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    1399:	88 10                	mov    %dl,(%rax)
+    139b:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+    139f:	48 8b 00             	mov    (%rax),%rax
+    13a2:	48 83 c0 01          	add    $0x1,%rax
+    13a6:	48 89 45 f0          	mov    %rax,-0x10(%rbp)
+    13aa:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    13ae:	48 89 c7             	mov    %rax,%rdi
+    13b1:	e8 8a fc ff ff       	call   1040 <strlen@plt>
+    13b6:	48 89 c2             	mov    %rax,%rdx
+    13b9:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    13bd:	48 8b 40 08          	mov    0x8(%rax),%rax
+    13c1:	48 8d 4d f0          	lea    -0x10(%rbp),%rcx
+    13c5:	48 89 ce             	mov    %rcx,%rsi
+    13c8:	48 89 c7             	mov    %rax,%rdi
+    13cb:	e8 90 fc ff ff       	call   1060 <memcpy@plt>
+    13d0:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    13d4:	48 8b 40 08          	mov    0x8(%rax),%rax
+    13d8:	48 85 c0             	test   %rax,%rax
+    13db:	75 1e                	jne    13fb <modifier+0xe9>
+    13dd:	48 8d 05 ec 0c 00 00 	lea    0xcec(%rip),%rax        # 20d0 <_IO_stdin_used+0xd0>
+    13e4:	48 89 c7             	mov    %rax,%rdi
+    13e7:	b8 00 00 00 00       	mov    $0x0,%eax
+    13ec:	e8 5f fc ff ff       	call   1050 <printf@plt>
+    13f1:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    13f6:	e8 85 fc ff ff       	call   1080 <exit@plt>
+    13fb:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    13ff:	eb 05                	jmp    1406 <modifier+0xf4>
+    1401:	b8 00 00 00 00       	mov    $0x0,%eax
+    1406:	c9                   	leave
+    1407:	c3                   	ret
+
+0000000000001408 <expression>:
+    1408:	55                   	push   %rbp
+    1409:	48 89 e5             	mov    %rsp,%rbp
+    140c:	48 83 ec 40          	sub    $0x40,%rsp
+    1410:	48 89 7d c8          	mov    %rdi,-0x38(%rbp)
+    1414:	48 83 7d c8 00       	cmpq   $0x0,-0x38(%rbp)
+    1419:	75 1e                	jne    1439 <expression+0x31>
+    141b:	48 8d 05 e6 0c 00 00 	lea    0xce6(%rip),%rax        # 2108 <_IO_stdin_used+0x108>
+    1422:	48 89 c7             	mov    %rax,%rdi
+    1425:	b8 00 00 00 00       	mov    $0x0,%eax
+    142a:	e8 21 fc ff ff       	call   1050 <printf@plt>
+    142f:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    1434:	e8 47 fc ff ff       	call   1080 <exit@plt>
+    1439:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+    143d:	48 89 c7             	mov    %rax,%rdi
+    1440:	e8 c1 04 00 00       	call   1906 <term>
+    1445:	48 85 c0             	test   %rax,%rax
+    1448:	0f 84 0e 02 00 00    	je     165c <expression+0x254>
+    144e:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+    1452:	48 89 c7             	mov    %rax,%rdi
+    1455:	e8 ac 04 00 00       	call   1906 <term>
+    145a:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+    145e:	48 83 7d f8 00       	cmpq   $0x0,-0x8(%rbp)
+    1463:	75 1e                	jne    1483 <expression+0x7b>
+    1465:	48 8d 05 bd 0c 00 00 	lea    0xcbd(%rip),%rax        # 2129 <_IO_stdin_used+0x129>
+    146c:	48 89 c7             	mov    %rax,%rdi
+    146f:	b8 00 00 00 00       	mov    $0x0,%eax
+    1474:	e8 d7 fb ff ff       	call   1050 <printf@plt>
+    1479:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    147e:	e8 fd fb ff ff       	call   1080 <exit@plt>
+    1483:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    1487:	48 83 c0 10          	add    $0x10,%rax
+    148b:	48 89 c7             	mov    %rax,%rdi
+    148e:	e8 75 ff ff ff       	call   1408 <expression>
+    1493:	48 85 c0             	test   %rax,%rax
+    1496:	0f 84 04 01 00 00    	je     15a0 <expression+0x198>
+    149c:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    14a0:	48 83 c0 10          	add    $0x10,%rax
+    14a4:	48 89 c7             	mov    %rax,%rdi
+    14a7:	e8 5c ff ff ff       	call   1408 <expression>
+    14ac:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+    14b0:	48 83 7d e8 00       	cmpq   $0x0,-0x18(%rbp)
+    14b5:	75 1e                	jne    14d5 <expression+0xcd>
+    14b7:	48 8d 05 83 0c 00 00 	lea    0xc83(%rip),%rax        # 2141 <_IO_stdin_used+0x141>
+    14be:	48 89 c7             	mov    %rax,%rdi
+    14c1:	b8 00 00 00 00       	mov    $0x0,%eax
+    14c6:	e8 85 fb ff ff       	call   1050 <printf@plt>
+    14cb:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    14d0:	e8 ab fb ff ff       	call   1080 <exit@plt>
+    14d5:	bf 18 00 00 00       	mov    $0x18,%edi
+    14da:	e8 91 fb ff ff       	call   1070 <malloc@plt>
+    14df:	48 89 45 e0          	mov    %rax,-0x20(%rbp)
+    14e3:	48 83 7d e0 00       	cmpq   $0x0,-0x20(%rbp)
+    14e8:	75 1e                	jne    1508 <expression+0x100>
+    14ea:	48 8d 05 6f 0c 00 00 	lea    0xc6f(%rip),%rax        # 2160 <_IO_stdin_used+0x160>
+    14f1:	48 89 c7             	mov    %rax,%rdi
+    14f4:	b8 00 00 00 00       	mov    $0x0,%eax
+    14f9:	e8 52 fb ff ff       	call   1050 <printf@plt>
+    14fe:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    1503:	e8 78 fb ff ff       	call   1080 <exit@plt>
+    1508:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+    150c:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+    1510:	48 89 10             	mov    %rdx,(%rax)
+    1513:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+    1517:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+    151b:	48 89 50 08          	mov    %rdx,0x8(%rax)
+    151f:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+    1523:	48 8b 00             	mov    (%rax),%rax
+    1526:	48 83 c0 18          	add    $0x18,%rax
+    152a:	48 89 45 d0          	mov    %rax,-0x30(%rbp)
+    152e:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+    1532:	48 89 c7             	mov    %rax,%rdi
+    1535:	e8 06 fb ff ff       	call   1040 <strlen@plt>
+    153a:	48 89 c2             	mov    %rax,%rdx
+    153d:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+    1541:	48 8b 40 10          	mov    0x10(%rax),%rax
+    1545:	48 8d 4d d0          	lea    -0x30(%rbp),%rcx
+    1549:	48 89 ce             	mov    %rcx,%rsi
+    154c:	48 89 c7             	mov    %rax,%rdi
+    154f:	e8 0c fb ff ff       	call   1060 <memcpy@plt>
+    1554:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+    1558:	48 8b 40 10          	mov    0x10(%rax),%rax
+    155c:	48 85 c0             	test   %rax,%rax
+    155f:	75 1e                	jne    157f <expression+0x177>
+    1561:	48 8d 05 28 0c 00 00 	lea    0xc28(%rip),%rax        # 2190 <_IO_stdin_used+0x190>
+    1568:	48 89 c7             	mov    %rax,%rdi
+    156b:	b8 00 00 00 00       	mov    $0x0,%eax
+    1570:	e8 db fa ff ff       	call   1050 <printf@plt>
+    1575:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    157a:	e8 01 fb ff ff       	call   1080 <exit@plt>
+    157f:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    1583:	48 89 c7             	mov    %rax,%rdi
+    1586:	e8 a5 fa ff ff       	call   1030 <free@plt>
+    158b:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+    158f:	48 89 c7             	mov    %rax,%rdi
+    1592:	e8 99 fa ff ff       	call   1030 <free@plt>
+    1597:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+    159b:	e9 c1 00 00 00       	jmp    1661 <expression+0x259>
+    15a0:	bf 18 00 00 00       	mov    $0x18,%edi
+    15a5:	e8 c6 fa ff ff       	call   1070 <malloc@plt>
+    15aa:	48 89 45 f0          	mov    %rax,-0x10(%rbp)
+    15ae:	48 83 7d f0 00       	cmpq   $0x0,-0x10(%rbp)
+    15b3:	75 1e                	jne    15d3 <expression+0x1cb>
+    15b5:	48 8d 05 a4 0b 00 00 	lea    0xba4(%rip),%rax        # 2160 <_IO_stdin_used+0x160>
+    15bc:	48 89 c7             	mov    %rax,%rdi
+    15bf:	b8 00 00 00 00       	mov    $0x0,%eax
+    15c4:	e8 87 fa ff ff       	call   1050 <printf@plt>
+    15c9:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    15ce:	e8 ad fa ff ff       	call   1080 <exit@plt>
+    15d3:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    15d7:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+    15db:	48 89 10             	mov    %rdx,(%rax)
+    15de:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    15e2:	48 c7 40 08 00 00 00 	movq   $0x0,0x8(%rax)
+    15e9:	00 
+    15ea:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+    15ee:	48 8b 00             	mov    (%rax),%rax
+    15f1:	48 83 c0 18          	add    $0x18,%rax
+    15f5:	48 89 45 d8          	mov    %rax,-0x28(%rbp)
+    15f9:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+    15fd:	48 89 c7             	mov    %rax,%rdi
+    1600:	e8 3b fa ff ff       	call   1040 <strlen@plt>
+    1605:	48 89 c2             	mov    %rax,%rdx
+    1608:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    160c:	48 8b 40 10          	mov    0x10(%rax),%rax
+    1610:	48 8d 4d d8          	lea    -0x28(%rbp),%rcx
+    1614:	48 89 ce             	mov    %rcx,%rsi
+    1617:	48 89 c7             	mov    %rax,%rdi
+    161a:	e8 41 fa ff ff       	call   1060 <memcpy@plt>
+    161f:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    1623:	48 8b 40 10          	mov    0x10(%rax),%rax
+    1627:	48 85 c0             	test   %rax,%rax
+    162a:	75 1e                	jne    164a <expression+0x242>
+    162c:	48 8d 05 5d 0b 00 00 	lea    0xb5d(%rip),%rax        # 2190 <_IO_stdin_used+0x190>
+    1633:	48 89 c7             	mov    %rax,%rdi
+    1636:	b8 00 00 00 00       	mov    $0x0,%eax
+    163b:	e8 10 fa ff ff       	call   1050 <printf@plt>
+    1640:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    1645:	e8 36 fa ff ff       	call   1080 <exit@plt>
+    164a:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    164e:	48 89 c7             	mov    %rax,%rdi
+    1651:	e8 da f9 ff ff       	call   1030 <free@plt>
+    1656:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    165a:	eb 05                	jmp    1661 <expression+0x259>
+    165c:	b8 00 00 00 00       	mov    $0x0,%eax
+    1661:	c9                   	leave
+    1662:	c3                   	ret
+
+0000000000001663 <group>:
+    1663:	55                   	push   %rbp
+    1664:	48 89 e5             	mov    %rsp,%rbp
+    1667:	48 83 ec 30          	sub    $0x30,%rsp
+    166b:	48 89 7d d8          	mov    %rdi,-0x28(%rbp)
+    166f:	48 83 7d d8 00       	cmpq   $0x0,-0x28(%rbp)
+    1674:	75 1e                	jne    1694 <group+0x31>
+    1676:	48 8d 05 49 0b 00 00 	lea    0xb49(%rip),%rax        # 21c6 <_IO_stdin_used+0x1c6>
+    167d:	48 89 c7             	mov    %rax,%rdi
+    1680:	b8 00 00 00 00       	mov    $0x0,%eax
+    1685:	e8 c6 f9 ff ff       	call   1050 <printf@plt>
+    168a:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    168f:	e8 ec f9 ff ff       	call   1080 <exit@plt>
+    1694:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+    1698:	48 8b 00             	mov    (%rax),%rax
+    169b:	0f b6 00             	movzbl (%rax),%eax
+    169e:	ba 28 00 00 00       	mov    $0x28,%edx
+    16a3:	38 d0                	cmp    %dl,%al
+    16a5:	0f 85 c1 00 00 00    	jne    176c <group+0x109>
+    16ab:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+    16af:	48 8b 00             	mov    (%rax),%rax
+    16b2:	48 83 c0 01          	add    $0x1,%rax
+    16b6:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+    16ba:	48 8d 45 e8          	lea    -0x18(%rbp),%rax
+    16be:	48 89 c7             	mov    %rax,%rdi
+    16c1:	e8 42 fd ff ff       	call   1408 <expression>
+    16c6:	48 85 c0             	test   %rax,%rax
+    16c9:	0f 84 9d 00 00 00    	je     176c <group+0x109>
+    16cf:	48 8d 45 e8          	lea    -0x18(%rbp),%rax
+    16d3:	48 89 c7             	mov    %rax,%rdi
+    16d6:	e8 2d fd ff ff       	call   1408 <expression>
+    16db:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+    16df:	48 83 7d f8 00       	cmpq   $0x0,-0x8(%rbp)
+    16e4:	75 1e                	jne    1704 <group+0xa1>
+    16e6:	48 8d 05 54 0a 00 00 	lea    0xa54(%rip),%rax        # 2141 <_IO_stdin_used+0x141>
+    16ed:	48 89 c7             	mov    %rax,%rdi
+    16f0:	b8 00 00 00 00       	mov    $0x0,%eax
+    16f5:	e8 56 f9 ff ff       	call   1050 <printf@plt>
+    16fa:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    16ff:	e8 7c f9 ff ff       	call   1080 <exit@plt>
+    1704:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    1708:	48 8b 40 10          	mov    0x10(%rax),%rax
+    170c:	0f b6 00             	movzbl (%rax),%eax
+    170f:	ba 29 00 00 00       	mov    $0x29,%edx
+    1714:	38 d0                	cmp    %dl,%al
+    1716:	75 54                	jne    176c <group+0x109>
+    1718:	bf 10 00 00 00       	mov    $0x10,%edi
+    171d:	e8 4e f9 ff ff       	call   1070 <malloc@plt>
+    1722:	48 89 45 f0          	mov    %rax,-0x10(%rbp)
+    1726:	48 83 7d f0 00       	cmpq   $0x0,-0x10(%rbp)
+    172b:	75 1e                	jne    174b <group+0xe8>
+    172d:	48 8d 05 b4 0a 00 00 	lea    0xab4(%rip),%rax        # 21e8 <_IO_stdin_used+0x1e8>
+    1734:	48 89 c7             	mov    %rax,%rdi
+    1737:	b8 00 00 00 00       	mov    $0x0,%eax
+    173c:	e8 0f f9 ff ff       	call   1050 <printf@plt>
+    1741:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    1746:	e8 35 f9 ff ff       	call   1080 <exit@plt>
+    174b:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    174f:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+    1753:	48 89 10             	mov    %rdx,(%rax)
+    1756:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    175a:	48 8b 50 10          	mov    0x10(%rax),%rdx
+    175e:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    1762:	48 89 50 08          	mov    %rdx,0x8(%rax)
+    1766:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    176a:	eb 05                	jmp    1771 <group+0x10e>
+    176c:	b8 00 00 00 00       	mov    $0x0,%eax
+    1771:	c9                   	leave
+    1772:	c3                   	ret
+
+0000000000001773 <item>:
+    1773:	55                   	push   %rbp
+    1774:	48 89 e5             	mov    %rsp,%rbp
+    1777:	48 83 ec 30          	sub    $0x30,%rsp
+    177b:	48 89 7d d8          	mov    %rdi,-0x28(%rbp)
+    177f:	48 83 7d d8 00       	cmpq   $0x0,-0x28(%rbp)
+    1784:	75 1e                	jne    17a4 <item+0x31>
+    1786:	48 8d 05 7f 0a 00 00 	lea    0xa7f(%rip),%rax        # 220c <_IO_stdin_used+0x20c>
+    178d:	48 89 c7             	mov    %rax,%rdi
+    1790:	b8 00 00 00 00       	mov    $0x0,%eax
+    1795:	e8 b6 f8 ff ff       	call   1050 <printf@plt>
+    179a:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    179f:	e8 dc f8 ff ff       	call   1080 <exit@plt>
+    17a4:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+    17a8:	48 89 c7             	mov    %rax,%rdi
+    17ab:	e8 6c fa ff ff       	call   121c <number>
+    17b0:	48 85 c0             	test   %rax,%rax
+    17b3:	0f 84 9a 00 00 00    	je     1853 <item+0xe0>
+    17b9:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+    17bd:	48 89 c7             	mov    %rax,%rdi
+    17c0:	e8 57 fa ff ff       	call   121c <number>
+    17c5:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+    17c9:	48 83 7d e8 00       	cmpq   $0x0,-0x18(%rbp)
+    17ce:	75 1e                	jne    17ee <item+0x7b>
+    17d0:	48 8d 05 50 0a 00 00 	lea    0xa50(%rip),%rax        # 2227 <_IO_stdin_used+0x227>
+    17d7:	48 89 c7             	mov    %rax,%rdi
+    17da:	b8 00 00 00 00       	mov    $0x0,%eax
+    17df:	e8 6c f8 ff ff       	call   1050 <printf@plt>
+    17e4:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    17e9:	e8 92 f8 ff ff       	call   1080 <exit@plt>
+    17ee:	bf 10 00 00 00       	mov    $0x10,%edi
+    17f3:	e8 78 f8 ff ff       	call   1070 <malloc@plt>
+    17f8:	48 89 45 e0          	mov    %rax,-0x20(%rbp)
+    17fc:	48 83 7d e0 00       	cmpq   $0x0,-0x20(%rbp)
+    1801:	75 1e                	jne    1821 <item+0xae>
+    1803:	48 8d 05 3e 0a 00 00 	lea    0xa3e(%rip),%rax        # 2248 <_IO_stdin_used+0x248>
+    180a:	48 89 c7             	mov    %rax,%rdi
+    180d:	b8 00 00 00 00       	mov    $0x0,%eax
+    1812:	e8 39 f8 ff ff       	call   1050 <printf@plt>
+    1817:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    181c:	e8 5f f8 ff ff       	call   1080 <exit@plt>
+    1821:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+    1825:	0f b6 10             	movzbl (%rax),%edx
+    1828:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+    182c:	88 10                	mov    %dl,(%rax)
+    182e:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+    1832:	48 8b 50 08          	mov    0x8(%rax),%rdx
+    1836:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+    183a:	48 89 50 08          	mov    %rdx,0x8(%rax)
+    183e:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+    1842:	48 89 c7             	mov    %rax,%rdi
+    1845:	e8 e6 f7 ff ff       	call   1030 <free@plt>
+    184a:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+    184e:	e9 b1 00 00 00       	jmp    1904 <item+0x191>
+    1853:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+    1857:	48 89 c7             	mov    %rax,%rdi
+    185a:	e8 04 fe ff ff       	call   1663 <group>
+    185f:	48 85 c0             	test   %rax,%rax
+    1862:	0f 84 97 00 00 00    	je     18ff <item+0x18c>
+    1868:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+    186c:	48 89 c7             	mov    %rax,%rdi
+    186f:	e8 a8 f9 ff ff       	call   121c <number>
+    1874:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+    1878:	48 83 7d f8 00       	cmpq   $0x0,-0x8(%rbp)
+    187d:	75 1e                	jne    189d <item+0x12a>
+    187f:	48 8d 05 a1 09 00 00 	lea    0x9a1(%rip),%rax        # 2227 <_IO_stdin_used+0x227>
+    1886:	48 89 c7             	mov    %rax,%rdi
+    1889:	b8 00 00 00 00       	mov    $0x0,%eax
+    188e:	e8 bd f7 ff ff       	call   1050 <printf@plt>
+    1893:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    1898:	e8 e3 f7 ff ff       	call   1080 <exit@plt>
+    189d:	bf 10 00 00 00       	mov    $0x10,%edi
+    18a2:	e8 c9 f7 ff ff       	call   1070 <malloc@plt>
+    18a7:	48 89 45 f0          	mov    %rax,-0x10(%rbp)
+    18ab:	48 83 7d f0 00       	cmpq   $0x0,-0x10(%rbp)
+    18b0:	75 1e                	jne    18d0 <item+0x15d>
+    18b2:	48 8d 05 8f 09 00 00 	lea    0x98f(%rip),%rax        # 2248 <_IO_stdin_used+0x248>
+    18b9:	48 89 c7             	mov    %rax,%rdi
+    18bc:	b8 00 00 00 00       	mov    $0x0,%eax
+    18c1:	e8 8a f7 ff ff       	call   1050 <printf@plt>
+    18c6:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    18cb:	e8 b0 f7 ff ff       	call   1080 <exit@plt>
+    18d0:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    18d4:	0f b6 10             	movzbl (%rax),%edx
+    18d7:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    18db:	88 10                	mov    %dl,(%rax)
+    18dd:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    18e1:	48 8b 50 08          	mov    0x8(%rax),%rdx
+    18e5:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    18e9:	48 89 50 08          	mov    %rdx,0x8(%rax)
+    18ed:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    18f1:	48 89 c7             	mov    %rax,%rdi
+    18f4:	e8 37 f7 ff ff       	call   1030 <free@plt>
+    18f9:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    18fd:	eb 05                	jmp    1904 <item+0x191>
+    18ff:	b8 00 00 00 00       	mov    $0x0,%eax
+    1904:	c9                   	leave
+    1905:	c3                   	ret
+
+0000000000001906 <term>:
+    1906:	55                   	push   %rbp
+    1907:	48 89 e5             	mov    %rsp,%rbp
+    190a:	48 83 ec 30          	sub    $0x30,%rsp
+    190e:	48 89 7d d8          	mov    %rdi,-0x28(%rbp)
+    1912:	48 83 7d d8 00       	cmpq   $0x0,-0x28(%rbp)
+    1917:	75 1e                	jne    1937 <term+0x31>
+    1919:	48 8d 05 4b 09 00 00 	lea    0x94b(%rip),%rax        # 226b <_IO_stdin_used+0x26b>
+    1920:	48 89 c7             	mov    %rax,%rdi
+    1923:	b8 00 00 00 00       	mov    $0x0,%eax
+    1928:	e8 23 f7 ff ff       	call   1050 <printf@plt>
+    192d:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    1932:	e8 49 f7 ff ff       	call   1080 <exit@plt>
+    1937:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+    193b:	48 89 c7             	mov    %rax,%rdi
+    193e:	e8 30 fe ff ff       	call   1773 <item>
+    1943:	48 85 c0             	test   %rax,%rax
+    1946:	0f 84 29 01 00 00    	je     1a75 <term+0x16f>
+    194c:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+    1950:	48 89 c7             	mov    %rax,%rdi
+    1953:	e8 1b fe ff ff       	call   1773 <item>
+    1958:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+    195c:	48 83 7d f8 00       	cmpq   $0x0,-0x8(%rbp)
+    1961:	75 1e                	jne    1981 <term+0x7b>
+    1963:	48 8d 05 1c 09 00 00 	lea    0x91c(%rip),%rax        # 2286 <_IO_stdin_used+0x286>
+    196a:	48 89 c7             	mov    %rax,%rdi
+    196d:	b8 00 00 00 00       	mov    $0x0,%eax
+    1972:	e8 d9 f6 ff ff       	call   1050 <printf@plt>
+    1977:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    197c:	e8 ff f6 ff ff       	call   1080 <exit@plt>
+    1981:	bf 18 00 00 00       	mov    $0x18,%edi
+    1986:	e8 e5 f6 ff ff       	call   1070 <malloc@plt>
+    198b:	48 89 45 f0          	mov    %rax,-0x10(%rbp)
+    198f:	48 83 7d f0 00       	cmpq   $0x0,-0x10(%rbp)
+    1994:	75 1e                	jne    19b4 <term+0xae>
+    1996:	48 8d 05 03 09 00 00 	lea    0x903(%rip),%rax        # 22a0 <_IO_stdin_used+0x2a0>
+    199d:	48 89 c7             	mov    %rax,%rdi
+    19a0:	b8 00 00 00 00       	mov    $0x0,%eax
+    19a5:	e8 a6 f6 ff ff       	call   1050 <printf@plt>
+    19aa:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    19af:	e8 cc f6 ff ff       	call   1080 <exit@plt>
+    19b4:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    19b8:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+    19bc:	48 89 10             	mov    %rdx,(%rax)
+    19bf:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    19c3:	48 83 c0 08          	add    $0x8,%rax
+    19c7:	48 89 c7             	mov    %rax,%rdi
+    19ca:	e8 94 fc ff ff       	call   1663 <group>
+    19cf:	48 85 c0             	test   %rax,%rax
+    19d2:	74 73                	je     1a47 <term+0x141>
+    19d4:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    19d8:	48 83 c0 08          	add    $0x8,%rax
+    19dc:	48 89 c7             	mov    %rax,%rdi
+    19df:	e8 7f fc ff ff       	call   1663 <group>
+    19e4:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+    19e8:	48 83 7d e8 00       	cmpq   $0x0,-0x18(%rbp)
+    19ed:	75 1e                	jne    1a0d <term+0x107>
+    19ef:	48 8d 05 cd 08 00 00 	lea    0x8cd(%rip),%rax        # 22c3 <_IO_stdin_used+0x2c3>
+    19f6:	48 89 c7             	mov    %rax,%rdi
+    19f9:	b8 00 00 00 00       	mov    $0x0,%eax
+    19fe:	e8 4d f6 ff ff       	call   1050 <printf@plt>
+    1a03:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    1a08:	e8 73 f6 ff ff       	call   1080 <exit@plt>
+    1a0d:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    1a11:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+    1a15:	48 89 50 08          	mov    %rdx,0x8(%rax)
+    1a19:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+    1a1d:	48 8b 50 08          	mov    0x8(%rax),%rdx
+    1a21:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    1a25:	48 89 50 10          	mov    %rdx,0x10(%rax)
+    1a29:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+    1a2d:	48 89 c7             	mov    %rax,%rdi
+    1a30:	e8 fb f5 ff ff       	call   1030 <free@plt>
+    1a35:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    1a39:	48 89 c7             	mov    %rax,%rdi
+    1a3c:	e8 ef f5 ff ff       	call   1030 <free@plt>
+    1a41:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    1a45:	eb 33                	jmp    1a7a <term+0x174>
+    1a47:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    1a4b:	48 c7 40 08 00 00 00 	movq   $0x0,0x8(%rax)
+    1a52:	00 
+    1a53:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    1a57:	48 8b 50 08          	mov    0x8(%rax),%rdx
+    1a5b:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    1a5f:	48 89 50 10          	mov    %rdx,0x10(%rax)
+    1a63:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    1a67:	48 89 c7             	mov    %rax,%rdi
+    1a6a:	e8 c1 f5 ff ff       	call   1030 <free@plt>
+    1a6f:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    1a73:	eb 05                	jmp    1a7a <term+0x174>
+    1a75:	b8 00 00 00 00       	mov    $0x0,%eax
+    1a7a:	c9                   	leave
+    1a7b:	c3                   	ret
+
+0000000000001a7c <start>:
+    1a7c:	55                   	push   %rbp
+    1a7d:	48 89 e5             	mov    %rsp,%rbp
+    1a80:	48 83 ec 20          	sub    $0x20,%rsp
+    1a84:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+    1a88:	48 83 7d e8 00       	cmpq   $0x0,-0x18(%rbp)
+    1a8d:	75 1e                	jne    1aad <start+0x31>
+    1a8f:	48 8d 05 46 08 00 00 	lea    0x846(%rip),%rax        # 22dc <_IO_stdin_used+0x2dc>
+    1a96:	48 89 c7             	mov    %rax,%rdi
+    1a99:	b8 00 00 00 00       	mov    $0x0,%eax
+    1a9e:	e8 ad f5 ff ff       	call   1050 <printf@plt>
+    1aa3:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    1aa8:	e8 d3 f5 ff ff       	call   1080 <exit@plt>
+    1aad:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+    1ab1:	48 89 c7             	mov    %rax,%rdi
+    1ab4:	e8 4f f9 ff ff       	call   1408 <expression>
+    1ab9:	48 85 c0             	test   %rax,%rax
+    1abc:	74 79                	je     1b37 <start+0xbb>
+    1abe:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+    1ac2:	48 89 c7             	mov    %rax,%rdi
+    1ac5:	e8 3e f9 ff ff       	call   1408 <expression>
+    1aca:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+    1ace:	48 83 7d f8 00       	cmpq   $0x0,-0x8(%rbp)
+    1ad3:	75 1e                	jne    1af3 <start+0x77>
+    1ad5:	48 8d 05 65 06 00 00 	lea    0x665(%rip),%rax        # 2141 <_IO_stdin_used+0x141>
+    1adc:	48 89 c7             	mov    %rax,%rdi
+    1adf:	b8 00 00 00 00       	mov    $0x0,%eax
+    1ae4:	e8 67 f5 ff ff       	call   1050 <printf@plt>
+    1ae9:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    1aee:	e8 8d f5 ff ff       	call   1080 <exit@plt>
+    1af3:	bf 08 00 00 00       	mov    $0x8,%edi
+    1af8:	e8 73 f5 ff ff       	call   1070 <malloc@plt>
+    1afd:	48 89 45 f0          	mov    %rax,-0x10(%rbp)
+    1b01:	48 83 7d f0 00       	cmpq   $0x0,-0x10(%rbp)
+    1b06:	75 1e                	jne    1b26 <start+0xaa>
+    1b08:	48 8d 05 e9 07 00 00 	lea    0x7e9(%rip),%rax        # 22f8 <_IO_stdin_used+0x2f8>
+    1b0f:	48 89 c7             	mov    %rax,%rdi
+    1b12:	b8 00 00 00 00       	mov    $0x0,%eax
+    1b17:	e8 34 f5 ff ff       	call   1050 <printf@plt>
+    1b1c:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    1b21:	e8 5a f5 ff ff       	call   1080 <exit@plt>
+    1b26:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    1b2a:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+    1b2e:	48 89 10             	mov    %rdx,(%rax)
+    1b31:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    1b35:	eb 05                	jmp    1b3c <start+0xc0>
+    1b37:	b8 00 00 00 00       	mov    $0x0,%eax
+    1b3c:	c9                   	leave
+    1b3d:	c3                   	ret
+
+0000000000001b3e <parse>:
+    1b3e:	55                   	push   %rbp
+    1b3f:	48 89 e5             	mov    %rsp,%rbp
+    1b42:	48 83 ec 20          	sub    $0x20,%rsp
+    1b46:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+    1b4a:	48 83 7d e8 00       	cmpq   $0x0,-0x18(%rbp)
+    1b4f:	75 1e                	jne    1b6f <parse+0x31>
+    1b51:	48 8d 05 c5 07 00 00 	lea    0x7c5(%rip),%rax        # 231d <_IO_stdin_used+0x31d>
+    1b58:	48 89 c7             	mov    %rax,%rdi
+    1b5b:	b8 00 00 00 00       	mov    $0x0,%eax
+    1b60:	e8 eb f4 ff ff       	call   1050 <printf@plt>
+    1b65:	bf ff ff ff ff       	mov    $0xffffffff,%edi
+    1b6a:	e8 11 f5 ff ff       	call   1080 <exit@plt>
+    1b6f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+    1b73:	48 89 c7             	mov    %rax,%rdi
+    1b76:	e8 01 ff ff ff       	call   1a7c <start>
+    1b7b:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+    1b7f:	48 8d 05 a5 07 00 00 	lea    0x7a5(%rip),%rax        # 232b <_IO_stdin_used+0x32b>
+    1b86:	48 89 c7             	mov    %rax,%rdi
+    1b89:	b8 00 00 00 00       	mov    $0x0,%eax
+    1b8e:	e8 bd f4 ff ff       	call   1050 <printf@plt>
+    1b93:	90                   	nop
+    1b94:	c9                   	leave
+    1b95:	c3                   	ret
+
+0000000000001b96 <main>:
+    1b96:	55                   	push   %rbp
+    1b97:	48 89 e5             	mov    %rsp,%rbp
+    1b9a:	48 83 ec 20          	sub    $0x20,%rsp
+    1b9e:	48 8d 05 8d 07 00 00 	lea    0x78d(%rip),%rax        # 2332 <_IO_stdin_used+0x332>
+    1ba5:	48 89 45 e0          	mov    %rax,-0x20(%rbp)
+    1ba9:	48 8d 05 86 07 00 00 	lea    0x786(%rip),%rax        # 2336 <_IO_stdin_used+0x336>
+    1bb0:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+    1bb4:	48 8d 05 81 07 00 00 	lea    0x781(%rip),%rax        # 233c <_IO_stdin_used+0x33c>
+    1bbb:	48 89 45 f0          	mov    %rax,-0x10(%rbp)
+    1bbf:	48 8d 05 7c 07 00 00 	lea    0x77c(%rip),%rax        # 2342 <_IO_stdin_used+0x342>
+    1bc6:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+    1bca:	48 8d 45 e0          	lea    -0x20(%rbp),%rax
+    1bce:	48 89 c7             	mov    %rax,%rdi
+    1bd1:	e8 68 ff ff ff       	call   1b3e <parse>
+    1bd6:	b8 00 00 00 00       	mov    $0x0,%eax
+    1bdb:	c9                   	leave
+    1bdc:	c3                   	ret
+
+Disassembly of section .fini:
+
+0000000000001be0 <_fini>:
+    1be0:	48 83 ec 08          	sub    $0x8,%rsp
+    1be4:	48 83 c4 08          	add    $0x8,%rsp
+    1be8:	c3                   	ret
+Contents of the .eh_frame section (loaded from a.out):
+
+
+00000000 0000000000000014 00000000 CIE
+  Version:               1
+  Augmentation:          "zR"
+  Code alignment factor: 1
+  Data alignment factor: -8
+  Return address column: 16
+  Augmentation data:     1b
+  DW_CFA_def_cfa: r7 (rsp) ofs 8
+  DW_CFA_offset: r16 (rip) at cfa-8
+  DW_CFA_undefined: r16 (rip)
+
+00000018 0000000000000014 0000001c FDE cie=00000000 pc=00000000000010a0..00000000000010c2
+  DW_CFA_nop
+  DW_CFA_nop
+  DW_CFA_nop
+  DW_CFA_nop
+  DW_CFA_nop
+  DW_CFA_nop
+  DW_CFA_nop
+
+00000030 0000000000000014 00000000 CIE
+  Version:               1
+  Augmentation:          "zR"
+  Code alignment factor: 1
+  Data alignment factor: -8
+  Return address column: 16
+  Augmentation data:     1b
+  DW_CFA_def_cfa: r7 (rsp) ofs 8
+  DW_CFA_offset: r16 (rip) at cfa-8
+  DW_CFA_nop
+  DW_CFA_nop
+
+00000048 0000000000000024 0000001c FDE cie=00000030 pc=0000000000001020..0000000000001090
+  DW_CFA_def_cfa_offset: 16
+  DW_CFA_advance_loc: 6 to 0000000000001026
+  DW_CFA_def_cfa_offset: 24
+  DW_CFA_advance_loc: 10 to 0000000000001030
+  DW_CFA_def_cfa_expression (DW_OP_breg7 (rsp): 8; DW_OP_breg16 (rip): 0; DW_OP_lit15; DW_OP_and; DW_OP_lit11; DW_OP_ge; DW_OP_lit3; DW_OP_shl; DW_OP_plus)
+  DW_CFA_nop
+  DW_CFA_nop
+  DW_CFA_nop
+  DW_CFA_nop
+
+00000070 0000000000000014 00000044 FDE cie=00000030 pc=0000000000001090..0000000000001098
+  DW_CFA_nop
+  DW_CFA_nop
+  DW_CFA_nop
+  DW_CFA_nop
+  DW_CFA_nop
+  DW_CFA_nop
+  DW_CFA_nop
+
+00000088 000000000000001c 0000005c FDE cie=00000030 pc=0000000000001189..00000000000011c2
+  DW_CFA_advance_loc: 1 to 000000000000118a
+  DW_CFA_def_cfa_offset: 16
+  DW_CFA_offset: r6 (rbp) at cfa-16
+  DW_CFA_advance_loc: 3 to 000000000000118d
+  DW_CFA_def_cfa_register: r6 (rbp)
+  DW_CFA_advance_loc: 52 to 00000000000011c1
+  DW_CFA_def_cfa: r7 (rsp) ofs 8
+  DW_CFA_nop
+  DW_CFA_nop
+  DW_CFA_nop
+
+000000a8 000000000000001c 0000007c FDE cie=00000030 pc=00000000000011c2..000000000000121c
+  DW_CFA_advance_loc: 1 to 00000000000011c3
+  DW_CFA_def_cfa_offset: 16
+  DW_CFA_offset: r6 (rbp) at cfa-16
+  DW_CFA_advance_loc: 3 to 00000000000011c6
+  DW_CFA_def_cfa_register: r6 (rbp)
+  DW_CFA_advance_loc1: 85 to 000000000000121b
+  DW_CFA_def_cfa: r7 (rsp) ofs 8
+  DW_CFA_nop
+  DW_CFA_nop
+
+000000c8 000000000000001c 0000009c FDE cie=00000030 pc=000000000000121c..0000000000001312
+  DW_CFA_advance_loc: 1 to 000000000000121d
+  DW_CFA_def_cfa_offset: 16
+  DW_CFA_offset: r6 (rbp) at cfa-16
+  DW_CFA_advance_loc: 3 to 0000000000001220
+  DW_CFA_def_cfa_register: r6 (rbp)
+  DW_CFA_advance_loc1: 241 to 0000000000001311
+  DW_CFA_def_cfa: r7 (rsp) ofs 8
+  DW_CFA_nop
+  DW_CFA_nop
+
+000000e8 000000000000001c 000000bc FDE cie=00000030 pc=0000000000001312..0000000000001408
+  DW_CFA_advance_loc: 1 to 0000000000001313
+  DW_CFA_def_cfa_offset: 16
+  DW_CFA_offset: r6 (rbp) at cfa-16
+  DW_CFA_advance_loc: 3 to 0000000000001316
+  DW_CFA_def_cfa_register: r6 (rbp)
+  DW_CFA_advance_loc1: 241 to 0000000000001407
+  DW_CFA_def_cfa: r7 (rsp) ofs 8
+  DW_CFA_nop
+  DW_CFA_nop
+
+00000108 000000000000001c 000000dc FDE cie=00000030 pc=0000000000001408..0000000000001663
+  DW_CFA_advance_loc: 1 to 0000000000001409
+  DW_CFA_def_cfa_offset: 16
+  DW_CFA_offset: r6 (rbp) at cfa-16
+  DW_CFA_advance_loc: 3 to 000000000000140c
+  DW_CFA_def_cfa_register: r6 (rbp)
+  DW_CFA_advance_loc2: 598 to 0000000000001662
+  DW_CFA_def_cfa: r7 (rsp) ofs 8
+  DW_CFA_nop
+
+00000128 000000000000001c 000000fc FDE cie=00000030 pc=0000000000001663..0000000000001773
+  DW_CFA_advance_loc: 1 to 0000000000001664
+  DW_CFA_def_cfa_offset: 16
+  DW_CFA_offset: r6 (rbp) at cfa-16
+  DW_CFA_advance_loc: 3 to 0000000000001667
+  DW_CFA_def_cfa_register: r6 (rbp)
+  DW_CFA_advance_loc2: 267 to 0000000000001772
+  DW_CFA_def_cfa: r7 (rsp) ofs 8
+  DW_CFA_nop
+
+00000148 000000000000001c 0000011c FDE cie=00000030 pc=0000000000001773..0000000000001906
+  DW_CFA_advance_loc: 1 to 0000000000001774
+  DW_CFA_def_cfa_offset: 16
+  DW_CFA_offset: r6 (rbp) at cfa-16
+  DW_CFA_advance_loc: 3 to 0000000000001777
+  DW_CFA_def_cfa_register: r6 (rbp)
+  DW_CFA_advance_loc2: 398 to 0000000000001905
+  DW_CFA_def_cfa: r7 (rsp) ofs 8
+  DW_CFA_nop
+
+00000168 000000000000001c 0000013c FDE cie=00000030 pc=0000000000001906..0000000000001a7c
+  DW_CFA_advance_loc: 1 to 0000000000001907
+  DW_CFA_def_cfa_offset: 16
+  DW_CFA_offset: r6 (rbp) at cfa-16
+  DW_CFA_advance_loc: 3 to 000000000000190a
+  DW_CFA_def_cfa_register: r6 (rbp)
+  DW_CFA_advance_loc2: 369 to 0000000000001a7b
+  DW_CFA_def_cfa: r7 (rsp) ofs 8
+  DW_CFA_nop
+
+00000188 000000000000001c 0000015c FDE cie=00000030 pc=0000000000001a7c..0000000000001b3e
+  DW_CFA_advance_loc: 1 to 0000000000001a7d
+  DW_CFA_def_cfa_offset: 16
+  DW_CFA_offset: r6 (rbp) at cfa-16
+  DW_CFA_advance_loc: 3 to 0000000000001a80
+  DW_CFA_def_cfa_register: r6 (rbp)
+  DW_CFA_advance_loc1: 189 to 0000000000001b3d
+  DW_CFA_def_cfa: r7 (rsp) ofs 8
+  DW_CFA_nop
+  DW_CFA_nop
+
+000001a8 000000000000001c 0000017c FDE cie=00000030 pc=0000000000001b3e..0000000000001b96
+  DW_CFA_advance_loc: 1 to 0000000000001b3f
+  DW_CFA_def_cfa_offset: 16
+  DW_CFA_offset: r6 (rbp) at cfa-16
+  DW_CFA_advance_loc: 3 to 0000000000001b42
+  DW_CFA_def_cfa_register: r6 (rbp)
+  DW_CFA_advance_loc1: 83 to 0000000000001b95
+  DW_CFA_def_cfa: r7 (rsp) ofs 8
+  DW_CFA_nop
+  DW_CFA_nop
+
+000001c8 000000000000001c 0000019c FDE cie=00000030 pc=0000000000001b96..0000000000001bdd
+  DW_CFA_advance_loc: 1 to 0000000000001b97
+  DW_CFA_def_cfa_offset: 16
+  DW_CFA_offset: r6 (rbp) at cfa-16
+  DW_CFA_advance_loc: 3 to 0000000000001b9a
+  DW_CFA_def_cfa_register: r6 (rbp)
+  DW_CFA_advance_loc1: 66 to 0000000000001bdc
+  DW_CFA_def_cfa: r7 (rsp) ofs 8
+  DW_CFA_nop
+  DW_CFA_nop
+
+000001e8 ZERO terminator
+
+
+Contents of the .debug_aranges section (loaded from a.out):
+
+  Length:                   44
+  Version:                  2
+  Offset into .debug_info:  0
+  Pointer Size:             8
+  Segment Size:             0
+
+    Address            Length
+    0000000000001189 0000000000000a54
+    0000000000000000 0000000000000000
+
+Contents of the .debug_info section (loaded from a.out):
+
+  Compilation Unit @ offset 0:
+   Length:        0x6b7 (32-bit)
+   Version:       5
+   Unit Type:     DW_UT_compile (1)
+   Abbrev Offset: 0
+   Pointer Size:  8
+ <0><c>: Abbrev Number: 14 (DW_TAG_compile_unit)
+    <d>   DW_AT_producer    : (indirect string, offset: 0x6b): GNU C17 12.2.0 -mtune=generic -march=x86-64 -g -fasynchronous-unwind-tables
+    <11>   DW_AT_language    : 29	(C11)
+    <12>   DW_AT_name        : (indirect line string, offset: 0): calc3.c
+    <16>   DW_AT_comp_dir    : (indirect line string, offset: 0x8): /home/laz/Documents/Personal_Work/C/calculator
+    <1a>   DW_AT_low_pc      : 0x1189
+    <22>   DW_AT_high_pc     : 0xa54
+    <2a>   DW_AT_stmt_list   : 0
+ <1><2e>: Abbrev Number: 15 (DW_TAG_typedef)
+    <2f>   DW_AT_name        : (indirect string, offset: 0xb): size_t
+    <33>   DW_AT_decl_file   : 5
+    <34>   DW_AT_decl_line   : 214
+    <35>   DW_AT_decl_column : 23
+    <36>   DW_AT_type        : <0x3a>
+ <1><3a>: Abbrev Number: 4 (DW_TAG_base_type)
+    <3b>   DW_AT_byte_size   : 8
+    <3c>   DW_AT_encoding    : 7	(unsigned)
+    <3d>   DW_AT_name        : (indirect string, offset: 0x100): long unsigned int
+ <1><41>: Abbrev Number: 16 (DW_TAG_base_type)
+    <42>   DW_AT_byte_size   : 4
+    <43>   DW_AT_encoding    : 5	(signed)
+    <44>   DW_AT_name        : int
+ <1><48>: Abbrev Number: 4 (DW_TAG_base_type)
+    <49>   DW_AT_byte_size   : 8
+    <4a>   DW_AT_encoding    : 5	(signed)
+    <4b>   DW_AT_name        : (indirect string, offset: 0x133): long int
+ <1><4f>: Abbrev Number: 4 (DW_TAG_base_type)
+    <50>   DW_AT_byte_size   : 8
+    <51>   DW_AT_encoding    : 5	(signed)
+    <52>   DW_AT_name        : (indirect string, offset: 0x12e): long long int
+ <1><56>: Abbrev Number: 4 (DW_TAG_base_type)
+    <57>   DW_AT_byte_size   : 1
+    <58>   DW_AT_encoding    : 8	(unsigned char)
+    <59>   DW_AT_name        : (indirect string, offset: 0xb7): unsigned char
+ <1><5d>: Abbrev Number: 4 (DW_TAG_base_type)
+    <5e>   DW_AT_byte_size   : 2
+    <5f>   DW_AT_encoding    : 7	(unsigned)
+    <60>   DW_AT_name        : (indirect string, offset: 0x50): short unsigned int
+ <1><64>: Abbrev Number: 4 (DW_TAG_base_type)
+    <65>   DW_AT_byte_size   : 4
+    <66>   DW_AT_encoding    : 7	(unsigned)
+    <67>   DW_AT_name        : (indirect string, offset: 0x105): unsigned int
+ <1><6b>: Abbrev Number: 4 (DW_TAG_base_type)
+    <6c>   DW_AT_byte_size   : 1
+    <6d>   DW_AT_encoding    : 6	(signed char)
+    <6e>   DW_AT_name        : (indirect string, offset: 0xb9): signed char
+ <1><72>: Abbrev Number: 4 (DW_TAG_base_type)
+    <73>   DW_AT_byte_size   : 2
+    <74>   DW_AT_encoding    : 5	(signed)
+    <75>   DW_AT_name        : (indirect string, offset: 0x173): short int
+ <1><79>: Abbrev Number: 17 (DW_TAG_pointer_type)
+    <7a>   DW_AT_byte_size   : 8
+ <1><7b>: Abbrev Number: 2 (DW_TAG_pointer_type)
+    <7c>   DW_AT_byte_size   : 8
+    <7c>   DW_AT_type        : <0x80>
+ <1><80>: Abbrev Number: 4 (DW_TAG_base_type)
+    <81>   DW_AT_byte_size   : 1
+    <82>   DW_AT_encoding    : 6	(signed char)
+    <83>   DW_AT_name        : (indirect string, offset: 0xc0): char
+ <1><87>: Abbrev Number: 18 (DW_TAG_const_type)
+    <88>   DW_AT_type        : <0x80>
+ <1><8c>: Abbrev Number: 4 (DW_TAG_base_type)
+    <8d>   DW_AT_byte_size   : 8
+    <8e>   DW_AT_encoding    : 7	(unsigned)
+    <8f>   DW_AT_name        : (indirect string, offset: 0xfb): long long unsigned int
+ <1><93>: Abbrev Number: 2 (DW_TAG_pointer_type)
+    <94>   DW_AT_byte_size   : 8
+    <94>   DW_AT_type        : <0x98>
+ <1><98>: Abbrev Number: 19 (DW_TAG_const_type)
+ <1><99>: Abbrev Number: 2 (DW_TAG_pointer_type)
+    <9a>   DW_AT_byte_size   : 8
+    <9a>   DW_AT_type        : <0x87>
+ <1><9e>: Abbrev Number: 9 (DW_TAG_structure_type)
+    <9f>   DW_AT_name        : (indirect string, offset: 0xf4): Number
+    <a3>   DW_AT_byte_size   : 16
+    <a4>   DW_AT_decl_file   : 1
+    <a4>   DW_AT_decl_line   : 13
+    <a5>   DW_AT_decl_column : 8
+    <a5>   DW_AT_sibling     : <0xc2>
+ <2><a9>: Abbrev Number: 1 (DW_TAG_member)
+    <aa>   DW_AT_name        : (indirect string, offset: 0x63): content
+    <ae>   DW_AT_decl_file   : 1
+    <ae>   DW_AT_decl_line   : 14
+    <af>   DW_AT_decl_column : 7
+    <b0>   DW_AT_type        : <0x80>
+    <b4>   DW_AT_data_member_location: 0
+ <2><b5>: Abbrev Number: 1 (DW_TAG_member)
+    <b6>   DW_AT_name        : (indirect string, offset: 0x119): after
+    <ba>   DW_AT_decl_file   : 1
+    <ba>   DW_AT_decl_line   : 15
+    <bb>   DW_AT_decl_column : 8
+    <bc>   DW_AT_type        : <0x7b>
+    <c0>   DW_AT_data_member_location: 8
+ <2><c1>: Abbrev Number: 0
+ <1><c2>: Abbrev Number: 9 (DW_TAG_structure_type)
+    <c3>   DW_AT_name        : (indirect string, offset: 0x2b): Modifier
+    <c7>   DW_AT_byte_size   : 16
+    <c8>   DW_AT_decl_file   : 1
+    <c8>   DW_AT_decl_line   : 18
+    <c9>   DW_AT_decl_column : 8
+    <c9>   DW_AT_sibling     : <0xe6>
+ <2><cd>: Abbrev Number: 1 (DW_TAG_member)
+    <ce>   DW_AT_name        : (indirect string, offset: 0x63): content
+    <d2>   DW_AT_decl_file   : 1
+    <d2>   DW_AT_decl_line   : 19
+    <d3>   DW_AT_decl_column : 7
+    <d4>   DW_AT_type        : <0x80>
+    <d8>   DW_AT_data_member_location: 0
+ <2><d9>: Abbrev Number: 1 (DW_TAG_member)
+    <da>   DW_AT_name        : (indirect string, offset: 0x119): after
+    <de>   DW_AT_decl_file   : 1
+    <de>   DW_AT_decl_line   : 20
+    <df>   DW_AT_decl_column : 8
+    <e0>   DW_AT_type        : <0x7b>
+    <e4>   DW_AT_data_member_location: 8
+ <2><e5>: Abbrev Number: 0
+ <1><e6>: Abbrev Number: 9 (DW_TAG_structure_type)
+    <e7>   DW_AT_name        : (indirect string, offset: 0xd4): Expression
+    <eb>   DW_AT_byte_size   : 24
+    <ec>   DW_AT_decl_file   : 1
+    <ec>   DW_AT_decl_line   : 23
+    <ed>   DW_AT_decl_column : 8
+    <ed>   DW_AT_sibling     : <0x116>
+ <2><f1>: Abbrev Number: 1 (DW_TAG_member)
+    <f2>   DW_AT_name        : (indirect string, offset: 0x18f): term
+    <f6>   DW_AT_decl_file   : 1
+    <f6>   DW_AT_decl_line   : 24
+    <f7>   DW_AT_decl_column : 15
+    <f8>   DW_AT_type        : <0x146>
+    <fc>   DW_AT_data_member_location: 0
+ <2><fd>: Abbrev Number: 1 (DW_TAG_member)
+    <fe>   DW_AT_name        : (indirect string, offset: 0x12): next
+    <102>   DW_AT_decl_file   : 1
+    <102>   DW_AT_decl_line   : 25
+    <103>   DW_AT_decl_column : 21
+    <104>   DW_AT_type        : <0x14b>
+    <108>   DW_AT_data_member_location: 8
+ <2><109>: Abbrev Number: 1 (DW_TAG_member)
+    <10a>   DW_AT_name        : (indirect string, offset: 0x119): after
+    <10e>   DW_AT_decl_file   : 1
+    <10e>   DW_AT_decl_line   : 26
+    <10f>   DW_AT_decl_column : 8
+    <110>   DW_AT_type        : <0x7b>
+    <114>   DW_AT_data_member_location: 16
+ <2><115>: Abbrev Number: 0
+ <1><116>: Abbrev Number: 9 (DW_TAG_structure_type)
+    <117>   DW_AT_name        : (indirect string, offset: 0x45): Term
+    <11b>   DW_AT_byte_size   : 24
+    <11c>   DW_AT_decl_file   : 1
+    <11c>   DW_AT_decl_line   : 39
+    <11d>   DW_AT_decl_column : 8
+    <11d>   DW_AT_sibling     : <0x146>
+ <2><121>: Abbrev Number: 1 (DW_TAG_member)
+    <122>   DW_AT_name        : (indirect string, offset: 0x17): item
+    <126>   DW_AT_decl_file   : 1
+    <126>   DW_AT_decl_line   : 40
+    <127>   DW_AT_decl_column : 15
+    <128>   DW_AT_type        : <0x198>
+    <12c>   DW_AT_data_member_location: 0
+ <2><12d>: Abbrev Number: 1 (DW_TAG_member)
+    <12e>   DW_AT_name        : (indirect string, offset: 0x4a): group
+    <132>   DW_AT_decl_file   : 1
+    <132>   DW_AT_decl_line   : 41
+    <133>   DW_AT_decl_column : 16
+    <134>   DW_AT_type        : <0x19d>
+    <138>   DW_AT_data_member_location: 8
+ <2><139>: Abbrev Number: 1 (DW_TAG_member)
+    <13a>   DW_AT_name        : (indirect string, offset: 0x119): after
+    <13e>   DW_AT_decl_file   : 1
+    <13e>   DW_AT_decl_line   : 42
+    <13f>   DW_AT_decl_column : 8
+    <140>   DW_AT_type        : <0x7b>
+    <144>   DW_AT_data_member_location: 16
+ <2><145>: Abbrev Number: 0
+ <1><146>: Abbrev Number: 2 (DW_TAG_pointer_type)
+    <147>   DW_AT_byte_size   : 8
+    <147>   DW_AT_type        : <0x116>
+ <1><14b>: Abbrev Number: 2 (DW_TAG_pointer_type)
+    <14c>   DW_AT_byte_size   : 8
+    <14c>   DW_AT_type        : <0xe6>
+ <1><150>: Abbrev Number: 9 (DW_TAG_structure_type)
+    <151>   DW_AT_name        : (indirect string, offset: 0xdf): Group
+    <155>   DW_AT_byte_size   : 16
+    <156>   DW_AT_decl_file   : 1
+    <156>   DW_AT_decl_line   : 29
+    <157>   DW_AT_decl_column : 8
+    <157>   DW_AT_sibling     : <0x174>
+ <2><15b>: Abbrev Number: 1 (DW_TAG_member)
+    <15c>   DW_AT_name        : (indirect string, offset: 0x63): content
+    <160>   DW_AT_decl_file   : 1
+    <160>   DW_AT_decl_line   : 30
+    <161>   DW_AT_decl_column : 21
+    <162>   DW_AT_type        : <0x14b>
+    <166>   DW_AT_data_member_location: 0
+ <2><167>: Abbrev Number: 1 (DW_TAG_member)
+    <168>   DW_AT_name        : (indirect string, offset: 0x119): after
+    <16c>   DW_AT_decl_file   : 1
+    <16c>   DW_AT_decl_line   : 31
+    <16d>   DW_AT_decl_column : 8
+    <16e>   DW_AT_type        : <0x7b>
+    <172>   DW_AT_data_member_location: 8
+ <2><173>: Abbrev Number: 0
+ <1><174>: Abbrev Number: 9 (DW_TAG_structure_type)
+    <175>   DW_AT_name        : (indirect string, offset: 0x34): Item
+    <179>   DW_AT_byte_size   : 16
+    <17a>   DW_AT_decl_file   : 1
+    <17a>   DW_AT_decl_line   : 34
+    <17b>   DW_AT_decl_column : 8
+    <17b>   DW_AT_sibling     : <0x198>
+ <2><17f>: Abbrev Number: 1 (DW_TAG_member)
+    <180>   DW_AT_name        : (indirect string, offset: 0x63): content
+    <184>   DW_AT_decl_file   : 1
+    <184>   DW_AT_decl_line   : 35
+    <185>   DW_AT_decl_column : 7
+    <186>   DW_AT_type        : <0x80>
+    <18a>   DW_AT_data_member_location: 0
+ <2><18b>: Abbrev Number: 1 (DW_TAG_member)
+    <18c>   DW_AT_name        : (indirect string, offset: 0x119): after
+    <190>   DW_AT_decl_file   : 1
+    <190>   DW_AT_decl_line   : 36
+    <191>   DW_AT_decl_column : 8
+    <192>   DW_AT_type        : <0x7b>
+    <196>   DW_AT_data_member_location: 8
+ <2><197>: Abbrev Number: 0
+ <1><198>: Abbrev Number: 2 (DW_TAG_pointer_type)
+    <199>   DW_AT_byte_size   : 8
+    <199>   DW_AT_type        : <0x174>
+ <1><19d>: Abbrev Number: 2 (DW_TAG_pointer_type)
+    <19e>   DW_AT_byte_size   : 8
+    <19e>   DW_AT_type        : <0x150>
+ <1><1a2>: Abbrev Number: 9 (DW_TAG_structure_type)
+    <1a3>   DW_AT_name        : (indirect string, offset: 0xc5): Start
+    <1a7>   DW_AT_byte_size   : 8
+    <1a8>   DW_AT_decl_file   : 1
+    <1a8>   DW_AT_decl_line   : 45
+    <1a9>   DW_AT_decl_column : 8
+    <1a9>   DW_AT_sibling     : <0x1ba>
+ <2><1ad>: Abbrev Number: 1 (DW_TAG_member)
+    <1ae>   DW_AT_name        : (indirect string, offset: 0x63): content
+    <1b2>   DW_AT_decl_file   : 1
+    <1b2>   DW_AT_decl_line   : 46
+    <1b3>   DW_AT_decl_column : 21
+    <1b4>   DW_AT_type        : <0x14b>
+    <1b8>   DW_AT_data_member_location: 0
+ <2><1b9>: Abbrev Number: 0
+ <1><1ba>: Abbrev Number: 20 (DW_TAG_subprogram)
+    <1bb>   DW_AT_external    : 1
+    <1bb>   DW_AT_name        : (indirect string, offset: 0x129): free
+    <1bf>   DW_AT_decl_file   : 3
+    <1c0>   DW_AT_decl_line   : 568
+    <1c2>   DW_AT_decl_column : 13
+    <1c3>   DW_AT_prototyped  : 1
+    <1c3>   DW_AT_declaration : 1
+    <1c3>   DW_AT_sibling     : <0x1cd>
+ <2><1c7>: Abbrev Number: 7 (DW_TAG_formal_parameter)
+    <1c8>   DW_AT_type        : <0x79>
+ <2><1cc>: Abbrev Number: 0
+ <1><1cd>: Abbrev Number: 21 (DW_TAG_subprogram)
+    <1ce>   DW_AT_external    : 1
+    <1ce>   DW_AT_name        : (indirect string, offset: 0x149): memcpy
+    <1d2>   DW_AT_decl_file   : 2
+    <1d3>   DW_AT_decl_line   : 43
+    <1d4>   DW_AT_decl_column : 14
+    <1d5>   DW_AT_prototyped  : 1
+    <1d5>   DW_AT_type        : <0x79>
+    <1d9>   DW_AT_declaration : 1
+    <1d9>   DW_AT_sibling     : <0x1ed>
+ <2><1dd>: Abbrev Number: 7 (DW_TAG_formal_parameter)
+    <1de>   DW_AT_type        : <0x79>
+ <2><1e2>: Abbrev Number: 7 (DW_TAG_formal_parameter)
+    <1e3>   DW_AT_type        : <0x93>
+ <2><1e7>: Abbrev Number: 7 (DW_TAG_formal_parameter)
+    <1e8>   DW_AT_type        : <0x2e>
+ <2><1ec>: Abbrev Number: 0
+ <1><1ed>: Abbrev Number: 12 (DW_TAG_subprogram)
+    <1ee>   DW_AT_external    : 1
+    <1ee>   DW_AT_name        : (indirect string, offset: 0x39): strlen
+    <1f2>   DW_AT_decl_file   : 2
+    <1f3>   DW_AT_decl_line   : 407
+    <1f5>   DW_AT_decl_column : 15
+    <1f6>   DW_AT_prototyped  : 1
+    <1f6>   DW_AT_type        : <0x2e>
+    <1fa>   DW_AT_declaration : 1
+    <1fa>   DW_AT_sibling     : <0x204>
+ <2><1fe>: Abbrev Number: 7 (DW_TAG_formal_parameter)
+    <1ff>   DW_AT_type        : <0x99>
+ <2><203>: Abbrev Number: 0
+ <1><204>: Abbrev Number: 12 (DW_TAG_subprogram)
+    <205>   DW_AT_external    : 1
+    <205>   DW_AT_name        : (indirect string, offset: 0x188): malloc
+    <209>   DW_AT_decl_file   : 3
+    <20a>   DW_AT_decl_line   : 553
+    <20c>   DW_AT_decl_column : 14
+    <20d>   DW_AT_prototyped  : 1
+    <20d>   DW_AT_type        : <0x79>
+    <211>   DW_AT_declaration : 1
+    <211>   DW_AT_sibling     : <0x21b>
+ <2><215>: Abbrev Number: 7 (DW_TAG_formal_parameter)
+    <216>   DW_AT_type        : <0x2e>
+ <2><21a>: Abbrev Number: 0
+ <1><21b>: Abbrev Number: 22 (DW_TAG_subprogram)
+    <21c>   DW_AT_external    : 1
+    <21c>   DW_AT_name        : (indirect string, offset: 0x40): exit
+    <220>   DW_AT_decl_file   : 3
+    <221>   DW_AT_decl_line   : 637
+    <223>   DW_AT_decl_column : 13
+    <224>   DW_AT_prototyped  : 1
+    <224>   DW_AT_noreturn    : 1
+    <224>   DW_AT_declaration : 1
+    <224>   DW_AT_sibling     : <0x22e>
+ <2><228>: Abbrev Number: 7 (DW_TAG_formal_parameter)
+    <229>   DW_AT_type        : <0x41>
+ <2><22d>: Abbrev Number: 0
+ <1><22e>: Abbrev Number: 12 (DW_TAG_subprogram)
+    <22f>   DW_AT_external    : 1
+    <22f>   DW_AT_name        : (indirect string, offset: 0x150): printf
+    <233>   DW_AT_decl_file   : 4
+    <234>   DW_AT_decl_line   : 356
+    <236>   DW_AT_decl_column : 12
+    <237>   DW_AT_prototyped  : 1
+    <237>   DW_AT_type        : <0x41>
+    <23b>   DW_AT_declaration : 1
+    <23b>   DW_AT_sibling     : <0x246>
+ <2><23f>: Abbrev Number: 7 (DW_TAG_formal_parameter)
+    <240>   DW_AT_type        : <0x99>
+ <2><244>: Abbrev Number: 23 (DW_TAG_unspecified_parameters)
+ <2><245>: Abbrev Number: 0
+ <1><246>: Abbrev Number: 24 (DW_TAG_subprogram)
+    <247>   DW_AT_external    : 1
+    <247>   DW_AT_name        : (indirect string, offset: 0xef): main
+    <24b>   DW_AT_decl_file   : 1
+    <24c>   DW_AT_decl_line   : 312
+    <24e>   DW_AT_decl_column : 5
+    <24f>   DW_AT_type        : <0x41>
+    <253>   DW_AT_low_pc      : 0x1b96
+    <25b>   DW_AT_high_pc     : 0x47
+    <263>   DW_AT_frame_base  : 1 byte block: 9c 	(DW_OP_call_frame_cfa)
+    <265>   DW_AT_call_all_tail_calls: 1
+    <265>   DW_AT_sibling     : <0x2a6>
+ <2><269>: Abbrev Number: 10 (DW_TAG_variable)
+    <26a>   DW_AT_name        : (indirect string, offset: 0x194): simple_case
+    <26e>   DW_AT_decl_file   : 1
+    <26e>   DW_AT_decl_line   : 313
+    <270>   DW_AT_decl_column : 8
+    <271>   DW_AT_type        : <0x7b>
+    <275>   DW_AT_location    : 2 byte block: 91 50 	(DW_OP_fbreg: -48)
+ <2><278>: Abbrev Number: 10 (DW_TAG_variable)
+    <279>   DW_AT_name        : (indirect string, offset: 0x13c): ordered_case
+    <27d>   DW_AT_decl_file   : 1
+    <27d>   DW_AT_decl_line   : 314
+    <27f>   DW_AT_decl_column : 8
+    <280>   DW_AT_type        : <0x7b>
+    <284>   DW_AT_location    : 2 byte block: 91 68 	(DW_OP_fbreg: -24)
+ <2><287>: Abbrev Number: 10 (DW_TAG_variable)
+    <288>   DW_AT_name        : (indirect string, offset: 0x157): bracket_case1
+    <28c>   DW_AT_decl_file   : 1
+    <28c>   DW_AT_decl_line   : 315
+    <28e>   DW_AT_decl_column : 8
+    <28f>   DW_AT_type        : <0x7b>
+    <293>   DW_AT_location    : 2 byte block: 91 60 	(DW_OP_fbreg: -32)
+ <2><296>: Abbrev Number: 10 (DW_TAG_variable)
+    <297>   DW_AT_name        : (indirect string, offset: 0x165): bracket_case2
+    <29b>   DW_AT_decl_file   : 1
+    <29b>   DW_AT_decl_line   : 316
+    <29d>   DW_AT_decl_column : 8
+    <29e>   DW_AT_type        : <0x7b>
+    <2a2>   DW_AT_location    : 2 byte block: 91 58 	(DW_OP_fbreg: -40)
+ <2><2a5>: Abbrev Number: 0
+ <1><2a6>: Abbrev Number: 25 (DW_TAG_subprogram)
+    <2a7>   DW_AT_external    : 1
+    <2a7>   DW_AT_name        : (indirect string, offset: 0x5): parse
+    <2ab>   DW_AT_decl_file   : 1
+    <2ac>   DW_AT_decl_line   : 303
+    <2ae>   DW_AT_decl_column : 6
+    <2af>   DW_AT_prototyped  : 1
+    <2af>   DW_AT_low_pc      : 0x1b3e
+    <2b7>   DW_AT_high_pc     : 0x58
+    <2bf>   DW_AT_frame_base  : 1 byte block: 9c 	(DW_OP_call_frame_cfa)
+    <2c1>   DW_AT_call_all_tail_calls: 1
+    <2c1>   DW_AT_sibling     : <0x2e4>
+ <2><2c5>: Abbrev Number: 13 (DW_TAG_formal_parameter)
+    <2c6>   DW_AT_name        : exp
+    <2ca>   DW_AT_decl_file   : 1
+    <2ca>   DW_AT_decl_line   : 303
+    <2cc>   DW_AT_decl_column : 19
+    <2cd>   DW_AT_type        : <0x2e4>
+    <2d1>   DW_AT_location    : 2 byte block: 91 58 	(DW_OP_fbreg: -40)
+ <2><2d4>: Abbrev Number: 10 (DW_TAG_variable)
+    <2d5>   DW_AT_name        : (indirect string, offset: 0): strt
+    <2d9>   DW_AT_decl_file   : 1
+    <2d9>   DW_AT_decl_line   : 308
+    <2db>   DW_AT_decl_column : 16
+    <2dc>   DW_AT_type        : <0x2e9>
+    <2e0>   DW_AT_location    : 2 byte block: 91 68 	(DW_OP_fbreg: -24)
+ <2><2e3>: Abbrev Number: 0
+ <1><2e4>: Abbrev Number: 2 (DW_TAG_pointer_type)
+    <2e5>   DW_AT_byte_size   : 8
+    <2e5>   DW_AT_type        : <0x7b>
+ <1><2e9>: Abbrev Number: 2 (DW_TAG_pointer_type)
+    <2ea>   DW_AT_byte_size   : 8
+    <2ea>   DW_AT_type        : <0x1a2>
+ <1><2ee>: Abbrev Number: 26 (DW_TAG_subprogram)
+    <2ef>   DW_AT_external    : 1
+    <2ef>   DW_AT_name        : (indirect string, offset: 0x1c): start
+    <2f3>   DW_AT_decl_file   : 1
+    <2f4>   DW_AT_decl_line   : 281
+    <2f6>   DW_AT_decl_column : 15
+    <2f7>   DW_AT_prototyped  : 1
+    <2f7>   DW_AT_type        : <0x2e9>
+    <2fb>   DW_AT_low_pc      : 0x1a7c
+    <303>   DW_AT_high_pc     : 0xc2
+    <30b>   DW_AT_frame_base  : 1 byte block: 9c 	(DW_OP_call_frame_cfa)
+    <30d>   DW_AT_call_all_tail_calls: 1
+    <30d>   DW_AT_sibling     : <0x351>
+ <2><311>: Abbrev Number: 13 (DW_TAG_formal_parameter)
+    <312>   DW_AT_name        : exp
+    <316>   DW_AT_decl_file   : 1
+    <316>   DW_AT_decl_line   : 281
+    <318>   DW_AT_decl_column : 28
+    <319>   DW_AT_type        : <0x2e4>
+    <31d>   DW_AT_location    : 2 byte block: 91 58 	(DW_OP_fbreg: -40)
+ <2><320>: Abbrev Number: 3 (DW_TAG_lexical_block)
+    <321>   DW_AT_low_pc      : 0x1abe
+    <329>   DW_AT_high_pc     : 0x79
+ <3><331>: Abbrev Number: 10 (DW_TAG_variable)
+    <332>   DW_AT_name        : (indirect string, offset: 0xcf): expr
+    <336>   DW_AT_decl_file   : 1
+    <336>   DW_AT_decl_line   : 287
+    <338>   DW_AT_decl_column : 22
+    <339>   DW_AT_type        : <0x14b>
+    <33d>   DW_AT_location    : 2 byte block: 91 68 	(DW_OP_fbreg: -24)
+ <3><340>: Abbrev Number: 10 (DW_TAG_variable)
+    <341>   DW_AT_name        : (indirect string, offset: 0x112): result
+    <345>   DW_AT_decl_file   : 1
+    <345>   DW_AT_decl_line   : 292
+    <347>   DW_AT_decl_column : 17
+    <348>   DW_AT_type        : <0x2e9>
+    <34c>   DW_AT_location    : 2 byte block: 91 60 	(DW_OP_fbreg: -32)
+ <3><34f>: Abbrev Number: 0
+ <2><350>: Abbrev Number: 0
+ <1><351>: Abbrev Number: 11 (DW_TAG_subprogram)
+    <352>   DW_AT_external    : 1
+    <352>   DW_AT_name        : (indirect string, offset: 0x18f): term
+    <356>   DW_AT_decl_file   : 1
+    <356>   DW_AT_decl_line   : 244
+    <357>   DW_AT_decl_column : 14
+    <358>   DW_AT_prototyped  : 1
+    <358>   DW_AT_type        : <0x146>
+    <35c>   DW_AT_low_pc      : 0x1906
+    <364>   DW_AT_high_pc     : 0x176
+    <36c>   DW_AT_frame_base  : 1 byte block: 9c 	(DW_OP_call_frame_cfa)
+    <36e>   DW_AT_call_all_tail_calls: 1
+    <36e>   DW_AT_sibling     : <0x3d1>
+ <2><372>: Abbrev Number: 8 (DW_TAG_formal_parameter)
+    <373>   DW_AT_name        : exp
+    <377>   DW_AT_decl_file   : 1
+    <377>   DW_AT_decl_line   : 244
+    <378>   DW_AT_decl_column : 26
+    <379>   DW_AT_type        : <0x2e4>
+    <37d>   DW_AT_location    : 2 byte block: 91 48 	(DW_OP_fbreg: -56)
+ <2><380>: Abbrev Number: 3 (DW_TAG_lexical_block)
+    <381>   DW_AT_low_pc      : 0x194c
+    <389>   DW_AT_high_pc     : 0x129
+ <3><391>: Abbrev Number: 5 (DW_TAG_variable)
+    <392>   DW_AT_name        : itm
+    <396>   DW_AT_decl_file   : 1
+    <396>   DW_AT_decl_line   : 250
+    <397>   DW_AT_decl_column : 16
+    <398>   DW_AT_type        : <0x198>
+    <39c>   DW_AT_location    : 2 byte block: 91 68 	(DW_OP_fbreg: -24)
+ <3><39f>: Abbrev Number: 5 (DW_TAG_variable)
+    <3a0>   DW_AT_name        : trm
+    <3a4>   DW_AT_decl_file   : 1
+    <3a4>   DW_AT_decl_line   : 255
+    <3a5>   DW_AT_decl_column : 16
+    <3a6>   DW_AT_type        : <0x146>
+    <3aa>   DW_AT_location    : 2 byte block: 91 60 	(DW_OP_fbreg: -32)
+ <3><3ad>: Abbrev Number: 3 (DW_TAG_lexical_block)
+    <3ae>   DW_AT_low_pc      : 0x19d4
+    <3b6>   DW_AT_high_pc     : 0x73
+ <4><3be>: Abbrev Number: 27 (DW_TAG_variable)
+    <3bf>   DW_AT_name        : grp
+    <3c3>   DW_AT_decl_file   : 1
+    <3c4>   DW_AT_decl_line   : 262
+    <3c6>   DW_AT_decl_column : 18
+    <3c7>   DW_AT_type        : <0x19d>
+    <3cb>   DW_AT_location    : 2 byte block: 91 58 	(DW_OP_fbreg: -40)
+ <4><3ce>: Abbrev Number: 0
+ <3><3cf>: Abbrev Number: 0
+ <2><3d0>: Abbrev Number: 0
+ <1><3d1>: Abbrev Number: 11 (DW_TAG_subprogram)
+    <3d2>   DW_AT_external    : 1
+    <3d2>   DW_AT_name        : (indirect string, offset: 0x17): item
+    <3d6>   DW_AT_decl_file   : 1
+    <3d6>   DW_AT_decl_line   : 202
+    <3d7>   DW_AT_decl_column : 14
+    <3d8>   DW_AT_prototyped  : 1
+    <3d8>   DW_AT_type        : <0x198>
+    <3dc>   DW_AT_low_pc      : 0x1773
+    <3e4>   DW_AT_high_pc     : 0x193
+    <3ec>   DW_AT_frame_base  : 1 byte block: 9c 	(DW_OP_call_frame_cfa)
+    <3ee>   DW_AT_call_all_tail_calls: 1
+    <3ee>   DW_AT_sibling     : <0x461>
+ <2><3f2>: Abbrev Number: 8 (DW_TAG_formal_parameter)
+    <3f3>   DW_AT_name        : exp
+    <3f7>   DW_AT_decl_file   : 1
+    <3f7>   DW_AT_decl_line   : 202
+    <3f8>   DW_AT_decl_column : 26
+    <3f9>   DW_AT_type        : <0x2e4>
+    <3fd>   DW_AT_location    : 2 byte block: 91 48 	(DW_OP_fbreg: -56)
+ <2><400>: Abbrev Number: 28 (DW_TAG_lexical_block)
+    <401>   DW_AT_low_pc      : 0x17b9
+    <409>   DW_AT_high_pc     : 0x9a
+    <411>   DW_AT_sibling     : <0x432>
+ <3><415>: Abbrev Number: 5 (DW_TAG_variable)
+    <416>   DW_AT_name        : num
+    <41a>   DW_AT_decl_file   : 1
+    <41a>   DW_AT_decl_line   : 209
+    <41b>   DW_AT_decl_column : 18
+    <41c>   DW_AT_type        : <0x461>
+    <420>   DW_AT_location    : 2 byte block: 91 58 	(DW_OP_fbreg: -40)
+ <3><423>: Abbrev Number: 5 (DW_TAG_variable)
+    <424>   DW_AT_name        : itm
+    <428>   DW_AT_decl_file   : 1
+    <428>   DW_AT_decl_line   : 214
+    <429>   DW_AT_decl_column : 16
+    <42a>   DW_AT_type        : <0x198>
+    <42e>   DW_AT_location    : 2 byte block: 91 50 	(DW_OP_fbreg: -48)
+ <3><431>: Abbrev Number: 0
+ <2><432>: Abbrev Number: 3 (DW_TAG_lexical_block)
+    <433>   DW_AT_low_pc      : 0x1868
+    <43b>   DW_AT_high_pc     : 0x97
+ <3><443>: Abbrev Number: 5 (DW_TAG_variable)
+    <444>   DW_AT_name        : num
+    <448>   DW_AT_decl_file   : 1
+    <448>   DW_AT_decl_line   : 225
+    <449>   DW_AT_decl_column : 18
+    <44a>   DW_AT_type        : <0x461>
+    <44e>   DW_AT_location    : 2 byte block: 91 68 	(DW_OP_fbreg: -24)
+ <3><451>: Abbrev Number: 5 (DW_TAG_variable)
+    <452>   DW_AT_name        : itm
+    <456>   DW_AT_decl_file   : 1
+    <456>   DW_AT_decl_line   : 230
+    <457>   DW_AT_decl_column : 16
+    <458>   DW_AT_type        : <0x198>
+    <45c>   DW_AT_location    : 2 byte block: 91 60 	(DW_OP_fbreg: -32)
+ <3><45f>: Abbrev Number: 0
+ <2><460>: Abbrev Number: 0
+ <1><461>: Abbrev Number: 2 (DW_TAG_pointer_type)
+    <462>   DW_AT_byte_size   : 8
+    <462>   DW_AT_type        : <0x9e>
+ <1><466>: Abbrev Number: 11 (DW_TAG_subprogram)
+    <467>   DW_AT_external    : 1
+    <467>   DW_AT_name        : (indirect string, offset: 0x4a): group
+    <46b>   DW_AT_decl_file   : 1
+    <46b>   DW_AT_decl_line   : 174
+    <46c>   DW_AT_decl_column : 15
+    <46d>   DW_AT_prototyped  : 1
+    <46d>   DW_AT_type        : <0x19d>
+    <471>   DW_AT_low_pc      : 0x1663
+    <479>   DW_AT_high_pc     : 0x110
+    <481>   DW_AT_frame_base  : 1 byte block: 9c 	(DW_OP_call_frame_cfa)
+    <483>   DW_AT_call_all_tail_calls: 1
+    <483>   DW_AT_sibling     : <0x4f6>
+ <2><487>: Abbrev Number: 8 (DW_TAG_formal_parameter)
+    <488>   DW_AT_name        : exp
+    <48c>   DW_AT_decl_file   : 1
+    <48c>   DW_AT_decl_line   : 174
+    <48d>   DW_AT_decl_column : 28
+    <48e>   DW_AT_type        : <0x2e4>
+    <492>   DW_AT_location    : 2 byte block: 91 48 	(DW_OP_fbreg: -56)
+ <2><495>: Abbrev Number: 3 (DW_TAG_lexical_block)
+    <496>   DW_AT_low_pc      : 0x16ab
+    <49e>   DW_AT_high_pc     : 0xc1
+ <3><4a6>: Abbrev Number: 6 (DW_TAG_variable)
+    <4a7>   DW_AT_name        : (indirect string, offset: 0x119): after
+    <4ab>   DW_AT_decl_file   : 1
+    <4ab>   DW_AT_decl_line   : 180
+    <4ac>   DW_AT_decl_column : 9
+    <4ad>   DW_AT_type        : <0x7b>
+    <4b1>   DW_AT_location    : 2 byte block: 91 58 	(DW_OP_fbreg: -40)
+ <3><4b4>: Abbrev Number: 3 (DW_TAG_lexical_block)
+    <4b5>   DW_AT_low_pc      : 0x16cf
+    <4bd>   DW_AT_high_pc     : 0x9d
+ <4><4c5>: Abbrev Number: 6 (DW_TAG_variable)
+    <4c6>   DW_AT_name        : (indirect string, offset: 0xcf): expr
+    <4ca>   DW_AT_decl_file   : 1
+    <4ca>   DW_AT_decl_line   : 182
+    <4cb>   DW_AT_decl_column : 23
+    <4cc>   DW_AT_type        : <0x14b>
+    <4d0>   DW_AT_location    : 2 byte block: 91 68 	(DW_OP_fbreg: -24)
+ <4><4d3>: Abbrev Number: 3 (DW_TAG_lexical_block)
+    <4d4>   DW_AT_low_pc      : 0x1718
+    <4dc>   DW_AT_high_pc     : 0x54
+ <5><4e4>: Abbrev Number: 5 (DW_TAG_variable)
+    <4e5>   DW_AT_name        : grp
+    <4e9>   DW_AT_decl_file   : 1
+    <4e9>   DW_AT_decl_line   : 188
+    <4ea>   DW_AT_decl_column : 19
+    <4eb>   DW_AT_type        : <0x19d>
+    <4ef>   DW_AT_location    : 2 byte block: 91 60 	(DW_OP_fbreg: -32)
+ <5><4f2>: Abbrev Number: 0
+ <4><4f3>: Abbrev Number: 0
+ <3><4f4>: Abbrev Number: 0
+ <2><4f5>: Abbrev Number: 0
+ <1><4f6>: Abbrev Number: 11 (DW_TAG_subprogram)
+    <4f7>   DW_AT_external    : 1
+    <4f7>   DW_AT_name        : (indirect string, offset: 0x17d): expression
+    <4fb>   DW_AT_decl_file   : 1
+    <4fb>   DW_AT_decl_line   : 121
+    <4fc>   DW_AT_decl_column : 20
+    <4fd>   DW_AT_prototyped  : 1
+    <4fd>   DW_AT_type        : <0x14b>
+    <501>   DW_AT_low_pc      : 0x1408
+    <509>   DW_AT_high_pc     : 0x25b
+    <511>   DW_AT_frame_base  : 1 byte block: 9c 	(DW_OP_call_frame_cfa)
+    <513>   DW_AT_call_all_tail_calls: 1
+    <513>   DW_AT_sibling     : <0x59f>
+ <2><517>: Abbrev Number: 8 (DW_TAG_formal_parameter)
+    <518>   DW_AT_name        : exp
+    <51c>   DW_AT_decl_file   : 1
+    <51c>   DW_AT_decl_line   : 121
+    <51d>   DW_AT_decl_column : 38
+    <51e>   DW_AT_type        : <0x2e4>
+    <522>   DW_AT_location    : 3 byte block: 91 b8 7f 	(DW_OP_fbreg: -72)
+ <2><526>: Abbrev Number: 3 (DW_TAG_lexical_block)
+    <527>   DW_AT_low_pc      : 0x144e
+    <52f>   DW_AT_high_pc     : 0x20e
+ <3><537>: Abbrev Number: 5 (DW_TAG_variable)
+    <538>   DW_AT_name        : trm
+    <53c>   DW_AT_decl_file   : 1
+    <53c>   DW_AT_decl_line   : 127
+    <53d>   DW_AT_decl_column : 16
+    <53e>   DW_AT_type        : <0x146>
+    <542>   DW_AT_location    : 2 byte block: 91 68 	(DW_OP_fbreg: -24)
+ <3><545>: Abbrev Number: 6 (DW_TAG_variable)
+    <546>   DW_AT_name        : (indirect string, offset: 0xcb): fin_expr
+    <54a>   DW_AT_decl_file   : 1
+    <54a>   DW_AT_decl_line   : 155
+    <54b>   DW_AT_decl_column : 22
+    <54c>   DW_AT_type        : <0x14b>
+    <550>   DW_AT_location    : 2 byte block: 91 60 	(DW_OP_fbreg: -32)
+ <3><553>: Abbrev Number: 6 (DW_TAG_variable)
+    <554>   DW_AT_name        : (indirect string, offset: 0x119): after
+    <558>   DW_AT_decl_file   : 1
+    <558>   DW_AT_decl_line   : 162
+    <559>   DW_AT_decl_column : 9
+    <55a>   DW_AT_type        : <0x7b>
+    <55e>   DW_AT_location    : 2 byte block: 91 48 	(DW_OP_fbreg: -56)
+ <3><561>: Abbrev Number: 3 (DW_TAG_lexical_block)
+    <562>   DW_AT_low_pc      : 0x149c
+    <56a>   DW_AT_high_pc     : 0x104
+ <4><572>: Abbrev Number: 6 (DW_TAG_variable)
+    <573>   DW_AT_name        : (indirect string, offset: 0xcf): expr
+    <577>   DW_AT_decl_file   : 1
+    <577>   DW_AT_decl_line   : 133
+    <578>   DW_AT_decl_column : 23
+    <579>   DW_AT_type        : <0x14b>
+    <57d>   DW_AT_location    : 2 byte block: 91 58 	(DW_OP_fbreg: -40)
+ <4><580>: Abbrev Number: 6 (DW_TAG_variable)
+    <581>   DW_AT_name        : (indirect string, offset: 0xcb): fin_expr
+    <585>   DW_AT_decl_file   : 1
+    <585>   DW_AT_decl_line   : 138
+    <586>   DW_AT_decl_column : 23
+    <587>   DW_AT_type        : <0x14b>
+    <58b>   DW_AT_location    : 2 byte block: 91 50 	(DW_OP_fbreg: -48)
+ <4><58e>: Abbrev Number: 6 (DW_TAG_variable)
+    <58f>   DW_AT_name        : (indirect string, offset: 0x119): after
+    <593>   DW_AT_decl_file   : 1
+    <593>   DW_AT_decl_line   : 145
+    <594>   DW_AT_decl_column : 10
+    <595>   DW_AT_type        : <0x7b>
+    <599>   DW_AT_location    : 2 byte block: 91 40 	(DW_OP_fbreg: -64)
+ <4><59c>: Abbrev Number: 0
+ <3><59d>: Abbrev Number: 0
+ <2><59e>: Abbrev Number: 0
+ <1><59f>: Abbrev Number: 11 (DW_TAG_subprogram)
+    <5a0>   DW_AT_external    : 1
+    <5a0>   DW_AT_name        : (indirect string, offset: 0x22): modifier
+    <5a4>   DW_AT_decl_file   : 1
+    <5a4>   DW_AT_decl_line   : 98
+    <5a5>   DW_AT_decl_column : 18
+    <5a6>   DW_AT_prototyped  : 1
+    <5a6>   DW_AT_type        : <0x5fd>
+    <5aa>   DW_AT_low_pc      : 0x1312
+    <5b2>   DW_AT_high_pc     : 0xf6
+    <5ba>   DW_AT_frame_base  : 1 byte block: 9c 	(DW_OP_call_frame_cfa)
+    <5bc>   DW_AT_call_all_tail_calls: 1
+    <5bc>   DW_AT_sibling     : <0x5fd>
+ <2><5c0>: Abbrev Number: 8 (DW_TAG_formal_parameter)
+    <5c1>   DW_AT_name        : exp
+    <5c5>   DW_AT_decl_file   : 1
+    <5c5>   DW_AT_decl_line   : 98
+    <5c6>   DW_AT_decl_column : 34
+    <5c7>   DW_AT_type        : <0x2e4>
+    <5cb>   DW_AT_location    : 2 byte block: 91 58 	(DW_OP_fbreg: -40)
+ <2><5ce>: Abbrev Number: 3 (DW_TAG_lexical_block)
+    <5cf>   DW_AT_low_pc      : 0x1358
+    <5d7>   DW_AT_high_pc     : 0xa9
+ <3><5df>: Abbrev Number: 5 (DW_TAG_variable)
+    <5e0>   DW_AT_name        : mod
+    <5e4>   DW_AT_decl_file   : 1
+    <5e4>   DW_AT_decl_line   : 104
+    <5e5>   DW_AT_decl_column : 20
+    <5e6>   DW_AT_type        : <0x5fd>
+    <5ea>   DW_AT_location    : 2 byte block: 91 68 	(DW_OP_fbreg: -24)
+ <3><5ed>: Abbrev Number: 6 (DW_TAG_variable)
+    <5ee>   DW_AT_name        : (indirect string, offset: 0x119): after
+    <5f2>   DW_AT_decl_file   : 1
+    <5f2>   DW_AT_decl_line   : 110
+    <5f3>   DW_AT_decl_column : 9
+    <5f4>   DW_AT_type        : <0x7b>
+    <5f8>   DW_AT_location    : 2 byte block: 91 60 	(DW_OP_fbreg: -32)
+ <3><5fb>: Abbrev Number: 0
+ <2><5fc>: Abbrev Number: 0
+ <1><5fd>: Abbrev Number: 2 (DW_TAG_pointer_type)
+    <5fe>   DW_AT_byte_size   : 8
+    <5fe>   DW_AT_type        : <0xc2>
+ <1><602>: Abbrev Number: 11 (DW_TAG_subprogram)
+    <603>   DW_AT_external    : 1
+    <603>   DW_AT_name        : (indirect string, offset: 0x122): number
+    <607>   DW_AT_decl_file   : 1
+    <607>   DW_AT_decl_line   : 74
+    <608>   DW_AT_decl_column : 16
+    <609>   DW_AT_prototyped  : 1
+    <609>   DW_AT_type        : <0x461>
+    <60d>   DW_AT_low_pc      : 0x121c
+    <615>   DW_AT_high_pc     : 0xf6
+    <61d>   DW_AT_frame_base  : 1 byte block: 9c 	(DW_OP_call_frame_cfa)
+    <61f>   DW_AT_call_all_tail_calls: 1
+    <61f>   DW_AT_sibling     : <0x660>
+ <2><623>: Abbrev Number: 8 (DW_TAG_formal_parameter)
+    <624>   DW_AT_name        : exp
+    <628>   DW_AT_decl_file   : 1
+    <628>   DW_AT_decl_line   : 74
+    <629>   DW_AT_decl_column : 30
+    <62a>   DW_AT_type        : <0x2e4>
+    <62e>   DW_AT_location    : 2 byte block: 91 58 	(DW_OP_fbreg: -40)
+ <2><631>: Abbrev Number: 3 (DW_TAG_lexical_block)
+    <632>   DW_AT_low_pc      : 0x1262
+    <63a>   DW_AT_high_pc     : 0xa9
+ <3><642>: Abbrev Number: 5 (DW_TAG_variable)
+    <643>   DW_AT_name        : num
+    <647>   DW_AT_decl_file   : 1
+    <647>   DW_AT_decl_line   : 80
+    <648>   DW_AT_decl_column : 18
+    <649>   DW_AT_type        : <0x461>
+    <64d>   DW_AT_location    : 2 byte block: 91 68 	(DW_OP_fbreg: -24)
+ <3><650>: Abbrev Number: 6 (DW_TAG_variable)
+    <651>   DW_AT_name        : (indirect string, offset: 0x119): after
+    <655>   DW_AT_decl_file   : 1
+    <655>   DW_AT_decl_line   : 86
+    <656>   DW_AT_decl_column : 9
+    <657>   DW_AT_type        : <0x7b>
+    <65b>   DW_AT_location    : 2 byte block: 91 60 	(DW_OP_fbreg: -32)
+ <3><65e>: Abbrev Number: 0
+ <2><65f>: Abbrev Number: 0
+ <1><660>: Abbrev Number: 29 (DW_TAG_subprogram)
+    <661>   DW_AT_external    : 1
+    <661>   DW_AT_name        : (indirect string, offset: 0xe5): is_symbol
+    <665>   DW_AT_decl_file   : 1
+    <666>   DW_AT_decl_line   : 61
+    <667>   DW_AT_decl_column : 5
+    <668>   DW_AT_prototyped  : 1
+    <668>   DW_AT_type        : <0x41>
+    <66c>   DW_AT_low_pc      : 0x11c2
+    <674>   DW_AT_high_pc     : 0x5a
+    <67c>   DW_AT_frame_base  : 1 byte block: 9c 	(DW_OP_call_frame_cfa)
+    <67e>   DW_AT_call_all_calls: 1
+    <67e>   DW_AT_sibling     : <0x68f>
+ <2><682>: Abbrev Number: 8 (DW_TAG_formal_parameter)
+    <683>   DW_AT_name        : c
+    <685>   DW_AT_decl_file   : 1
+    <685>   DW_AT_decl_line   : 61
+    <686>   DW_AT_decl_column : 22
+    <687>   DW_AT_type        : <0x2e4>
+    <68b>   DW_AT_location    : 2 byte block: 91 68 	(DW_OP_fbreg: -24)
+ <2><68e>: Abbrev Number: 0
+ <1><68f>: Abbrev Number: 30 (DW_TAG_subprogram)
+    <690>   DW_AT_external    : 1
+    <690>   DW_AT_name        : (indirect string, offset: 0x11f): is_number
+    <694>   DW_AT_decl_file   : 1
+    <695>   DW_AT_decl_line   : 49
+    <696>   DW_AT_decl_column : 5
+    <697>   DW_AT_prototyped  : 1
+    <697>   DW_AT_type        : <0x41>
+    <69b>   DW_AT_low_pc      : 0x1189
+    <6a3>   DW_AT_high_pc     : 0x39
+    <6ab>   DW_AT_frame_base  : 1 byte block: 9c 	(DW_OP_call_frame_cfa)
+    <6ad>   DW_AT_call_all_calls: 1
+ <2><6ad>: Abbrev Number: 8 (DW_TAG_formal_parameter)
+    <6ae>   DW_AT_name        : c
+    <6b0>   DW_AT_decl_file   : 1
+    <6b0>   DW_AT_decl_line   : 49
+    <6b1>   DW_AT_decl_column : 22
+    <6b2>   DW_AT_type        : <0x2e4>
+    <6b6>   DW_AT_location    : 2 byte block: 91 68 	(DW_OP_fbreg: -24)
+ <2><6b9>: Abbrev Number: 0
+ <1><6ba>: Abbrev Number: 0
+
+Contents of the .debug_abbrev section (loaded from a.out):
+
+  Number TAG (0)
+   1      DW_TAG_member    [no children]
+    DW_AT_name         DW_FORM_strp
+    DW_AT_decl_file    DW_FORM_implicit_const: 1
+    DW_AT_decl_line    DW_FORM_data1
+    DW_AT_decl_column  DW_FORM_data1
+    DW_AT_type         DW_FORM_ref4
+    DW_AT_data_member_location DW_FORM_data1
+    DW_AT value: 0     DW_FORM value: 0
+   2      DW_TAG_pointer_type    [no children]
+    DW_AT_byte_size    DW_FORM_implicit_const: 8
+    DW_AT_type         DW_FORM_ref4
+    DW_AT value: 0     DW_FORM value: 0
+   3      DW_TAG_lexical_block    [has children]
+    DW_AT_low_pc       DW_FORM_addr
+    DW_AT_high_pc      DW_FORM_data8
+    DW_AT value: 0     DW_FORM value: 0
+   4      DW_TAG_base_type    [no children]
+    DW_AT_byte_size    DW_FORM_data1
+    DW_AT_encoding     DW_FORM_data1
+    DW_AT_name         DW_FORM_strp
+    DW_AT value: 0     DW_FORM value: 0
+   5      DW_TAG_variable    [no children]
+    DW_AT_name         DW_FORM_string
+    DW_AT_decl_file    DW_FORM_implicit_const: 1
+    DW_AT_decl_line    DW_FORM_data1
+    DW_AT_decl_column  DW_FORM_data1
+    DW_AT_type         DW_FORM_ref4
+    DW_AT_location     DW_FORM_exprloc
+    DW_AT value: 0     DW_FORM value: 0
+   6      DW_TAG_variable    [no children]
+    DW_AT_name         DW_FORM_strp
+    DW_AT_decl_file    DW_FORM_implicit_const: 1
+    DW_AT_decl_line    DW_FORM_data1
+    DW_AT_decl_column  DW_FORM_data1
+    DW_AT_type         DW_FORM_ref4
+    DW_AT_location     DW_FORM_exprloc
+    DW_AT value: 0     DW_FORM value: 0
+   7      DW_TAG_formal_parameter    [no children]
+    DW_AT_type         DW_FORM_ref4
+    DW_AT value: 0     DW_FORM value: 0
+   8      DW_TAG_formal_parameter    [no children]
+    DW_AT_name         DW_FORM_string
+    DW_AT_decl_file    DW_FORM_implicit_const: 1
+    DW_AT_decl_line    DW_FORM_data1
+    DW_AT_decl_column  DW_FORM_data1
+    DW_AT_type         DW_FORM_ref4
+    DW_AT_location     DW_FORM_exprloc
+    DW_AT value: 0     DW_FORM value: 0
+   9      DW_TAG_structure_type    [has children]
+    DW_AT_name         DW_FORM_strp
+    DW_AT_byte_size    DW_FORM_data1
+    DW_AT_decl_file    DW_FORM_implicit_const: 1
+    DW_AT_decl_line    DW_FORM_data1
+    DW_AT_decl_column  DW_FORM_implicit_const: 8
+    DW_AT_sibling      DW_FORM_ref4
+    DW_AT value: 0     DW_FORM value: 0
+   10      DW_TAG_variable    [no children]
+    DW_AT_name         DW_FORM_strp
+    DW_AT_decl_file    DW_FORM_implicit_const: 1
+    DW_AT_decl_line    DW_FORM_data2
+    DW_AT_decl_column  DW_FORM_data1
+    DW_AT_type         DW_FORM_ref4
+    DW_AT_location     DW_FORM_exprloc
+    DW_AT value: 0     DW_FORM value: 0
+   11      DW_TAG_subprogram    [has children]
+    DW_AT_external     DW_FORM_flag_present
+    DW_AT_name         DW_FORM_strp
+    DW_AT_decl_file    DW_FORM_implicit_const: 1
+    DW_AT_decl_line    DW_FORM_data1
+    DW_AT_decl_column  DW_FORM_data1
+    DW_AT_prototyped   DW_FORM_flag_present
+    DW_AT_type         DW_FORM_ref4
+    DW_AT_low_pc       DW_FORM_addr
+    DW_AT_high_pc      DW_FORM_data8
+    DW_AT_frame_base   DW_FORM_exprloc
+    DW_AT_call_all_tail_calls DW_FORM_flag_present
+    DW_AT_sibling      DW_FORM_ref4
+    DW_AT value: 0     DW_FORM value: 0
+   12      DW_TAG_subprogram    [has children]
+    DW_AT_external     DW_FORM_flag_present
+    DW_AT_name         DW_FORM_strp
+    DW_AT_decl_file    DW_FORM_data1
+    DW_AT_decl_line    DW_FORM_data2
+    DW_AT_decl_column  DW_FORM_data1
+    DW_AT_prototyped   DW_FORM_flag_present
+    DW_AT_type         DW_FORM_ref4
+    DW_AT_declaration  DW_FORM_flag_present
+    DW_AT_sibling      DW_FORM_ref4
+    DW_AT value: 0     DW_FORM value: 0
+   13      DW_TAG_formal_parameter    [no children]
+    DW_AT_name         DW_FORM_string
+    DW_AT_decl_file    DW_FORM_implicit_const: 1
+    DW_AT_decl_line    DW_FORM_data2
+    DW_AT_decl_column  DW_FORM_data1
+    DW_AT_type         DW_FORM_ref4
+    DW_AT_location     DW_FORM_exprloc
+    DW_AT value: 0     DW_FORM value: 0
+   14      DW_TAG_compile_unit    [has children]
+    DW_AT_producer     DW_FORM_strp
+    DW_AT_language     DW_FORM_data1
+    DW_AT_name         DW_FORM_line_strp
+    DW_AT_comp_dir     DW_FORM_line_strp
+    DW_AT_low_pc       DW_FORM_addr
+    DW_AT_high_pc      DW_FORM_data8
+    DW_AT_stmt_list    DW_FORM_sec_offset
+    DW_AT value: 0     DW_FORM value: 0
+   15      DW_TAG_typedef    [no children]
+    DW_AT_name         DW_FORM_strp
+    DW_AT_decl_file    DW_FORM_data1
+    DW_AT_decl_line    DW_FORM_data1
+    DW_AT_decl_column  DW_FORM_data1
+    DW_AT_type         DW_FORM_ref4
+    DW_AT value: 0     DW_FORM value: 0
+   16      DW_TAG_base_type    [no children]
+    DW_AT_byte_size    DW_FORM_data1
+    DW_AT_encoding     DW_FORM_data1
+    DW_AT_name         DW_FORM_string
+    DW_AT value: 0     DW_FORM value: 0
+   17      DW_TAG_pointer_type    [no children]
+    DW_AT_byte_size    DW_FORM_data1
+    DW_AT value: 0     DW_FORM value: 0
+   18      DW_TAG_const_type    [no children]
+    DW_AT_type         DW_FORM_ref4
+    DW_AT value: 0     DW_FORM value: 0
+   19      DW_TAG_const_type    [no children]
+    DW_AT value: 0     DW_FORM value: 0
+   20      DW_TAG_subprogram    [has children]
+    DW_AT_external     DW_FORM_flag_present
+    DW_AT_name         DW_FORM_strp
+    DW_AT_decl_file    DW_FORM_data1
+    DW_AT_decl_line    DW_FORM_data2
+    DW_AT_decl_column  DW_FORM_data1
+    DW_AT_prototyped   DW_FORM_flag_present
+    DW_AT_declaration  DW_FORM_flag_present
+    DW_AT_sibling      DW_FORM_ref4
+    DW_AT value: 0     DW_FORM value: 0
+   21      DW_TAG_subprogram    [has children]
+    DW_AT_external     DW_FORM_flag_present
+    DW_AT_name         DW_FORM_strp
+    DW_AT_decl_file    DW_FORM_data1
+    DW_AT_decl_line    DW_FORM_data1
+    DW_AT_decl_column  DW_FORM_data1
+    DW_AT_prototyped   DW_FORM_flag_present
+    DW_AT_type         DW_FORM_ref4
+    DW_AT_declaration  DW_FORM_flag_present
+    DW_AT_sibling      DW_FORM_ref4
+    DW_AT value: 0     DW_FORM value: 0
+   22      DW_TAG_subprogram    [has children]
+    DW_AT_external     DW_FORM_flag_present
+    DW_AT_name         DW_FORM_strp
+    DW_AT_decl_file    DW_FORM_data1
+    DW_AT_decl_line    DW_FORM_data2
+    DW_AT_decl_column  DW_FORM_data1
+    DW_AT_prototyped   DW_FORM_flag_present
+    DW_AT_noreturn     DW_FORM_flag_present
+    DW_AT_declaration  DW_FORM_flag_present
+    DW_AT_sibling      DW_FORM_ref4
+    DW_AT value: 0     DW_FORM value: 0
+   23      DW_TAG_unspecified_parameters    [no children]
+    DW_AT value: 0     DW_FORM value: 0
+   24      DW_TAG_subprogram    [has children]
+    DW_AT_external     DW_FORM_flag_present
+    DW_AT_name         DW_FORM_strp
+    DW_AT_decl_file    DW_FORM_data1
+    DW_AT_decl_line    DW_FORM_data2
+    DW_AT_decl_column  DW_FORM_data1
+    DW_AT_type         DW_FORM_ref4
+    DW_AT_low_pc       DW_FORM_addr
+    DW_AT_high_pc      DW_FORM_data8
+    DW_AT_frame_base   DW_FORM_exprloc
+    DW_AT_call_all_tail_calls DW_FORM_flag_present
+    DW_AT_sibling      DW_FORM_ref4
+    DW_AT value: 0     DW_FORM value: 0
+   25      DW_TAG_subprogram    [has children]
+    DW_AT_external     DW_FORM_flag_present
+    DW_AT_name         DW_FORM_strp
+    DW_AT_decl_file    DW_FORM_data1
+    DW_AT_decl_line    DW_FORM_data2
+    DW_AT_decl_column  DW_FORM_data1
+    DW_AT_prototyped   DW_FORM_flag_present
+    DW_AT_low_pc       DW_FORM_addr
+    DW_AT_high_pc      DW_FORM_data8
+    DW_AT_frame_base   DW_FORM_exprloc
+    DW_AT_call_all_tail_calls DW_FORM_flag_present
+    DW_AT_sibling      DW_FORM_ref4
+    DW_AT value: 0     DW_FORM value: 0
+   26      DW_TAG_subprogram    [has children]
+    DW_AT_external     DW_FORM_flag_present
+    DW_AT_name         DW_FORM_strp
+    DW_AT_decl_file    DW_FORM_data1
+    DW_AT_decl_line    DW_FORM_data2
+    DW_AT_decl_column  DW_FORM_data1
+    DW_AT_prototyped   DW_FORM_flag_present
+    DW_AT_type         DW_FORM_ref4
+    DW_AT_low_pc       DW_FORM_addr
+    DW_AT_high_pc      DW_FORM_data8
+    DW_AT_frame_base   DW_FORM_exprloc
+    DW_AT_call_all_tail_calls DW_FORM_flag_present
+    DW_AT_sibling      DW_FORM_ref4
+    DW_AT value: 0     DW_FORM value: 0
+   27      DW_TAG_variable    [no children]
+    DW_AT_name         DW_FORM_string
+    DW_AT_decl_file    DW_FORM_data1
+    DW_AT_decl_line    DW_FORM_data2
+    DW_AT_decl_column  DW_FORM_data1
+    DW_AT_type         DW_FORM_ref4
+    DW_AT_location     DW_FORM_exprloc
+    DW_AT value: 0     DW_FORM value: 0
+   28      DW_TAG_lexical_block    [has children]
+    DW_AT_low_pc       DW_FORM_addr
+    DW_AT_high_pc      DW_FORM_data8
+    DW_AT_sibling      DW_FORM_ref4
+    DW_AT value: 0     DW_FORM value: 0
+   29      DW_TAG_subprogram    [has children]
+    DW_AT_external     DW_FORM_flag_present
+    DW_AT_name         DW_FORM_strp
+    DW_AT_decl_file    DW_FORM_data1
+    DW_AT_decl_line    DW_FORM_data1
+    DW_AT_decl_column  DW_FORM_data1
+    DW_AT_prototyped   DW_FORM_flag_present
+    DW_AT_type         DW_FORM_ref4
+    DW_AT_low_pc       DW_FORM_addr
+    DW_AT_high_pc      DW_FORM_data8
+    DW_AT_frame_base   DW_FORM_exprloc
+    DW_AT_call_all_calls DW_FORM_flag_present
+    DW_AT_sibling      DW_FORM_ref4
+    DW_AT value: 0     DW_FORM value: 0
+   30      DW_TAG_subprogram    [has children]
+    DW_AT_external     DW_FORM_flag_present
+    DW_AT_name         DW_FORM_strp
+    DW_AT_decl_file    DW_FORM_data1
+    DW_AT_decl_line    DW_FORM_data1
+    DW_AT_decl_column  DW_FORM_data1
+    DW_AT_prototyped   DW_FORM_flag_present
+    DW_AT_type         DW_FORM_ref4
+    DW_AT_low_pc       DW_FORM_addr
+    DW_AT_high_pc      DW_FORM_data8
+    DW_AT_frame_base   DW_FORM_exprloc
+    DW_AT_call_all_calls DW_FORM_flag_present
+    DW_AT value: 0     DW_FORM value: 0
+
+Raw dump of debug contents of section .debug_line (loaded from a.out):
+
+  Offset:                      0
+  Length:                      847
+  DWARF Version:               5
+  Address size (bytes):        8
+  Segment selector (bytes):    0
+  Prologue Length:             70
+  Minimum Instruction Length:  1
+  Maximum Ops per Instruction: 1
+  Initial value of 'is_stmt':  1
+  Line Base:                   -5
+  Line Range:                  14
+  Opcode Base:                 13
+
+ Opcodes:
+  Opcode 1 has 0 args
+  Opcode 2 has 1 arg
+  Opcode 3 has 1 arg
+  Opcode 4 has 1 arg
+  Opcode 5 has 1 arg
+  Opcode 6 has 0 args
+  Opcode 7 has 0 args
+  Opcode 8 has 0 args
+  Opcode 9 has 1 arg
+  Opcode 10 has 0 args
+  Opcode 11 has 0 args
+  Opcode 12 has 1 arg
+
+ The Directory Table (offset 0x22, lines 3, columns 1):
+  Entry	Name
+  0	(indirect line string, offset: 0x8): /home/laz/Documents/Personal_Work/C/calculator
+  1	(indirect line string, offset: 0x37): /usr/include
+  2	(indirect line string, offset: 0x44): /usr/lib/gcc/x86_64-linux-gnu/12/include
+
+ The File Name Table (offset 0x34, lines 6, columns 2):
+  Entry	Dir	Name
+  0	0	(indirect line string, offset: 0): calc3.c
+  1	0	(indirect line string, offset: 0): calc3.c
+  2	1	(indirect line string, offset: 0x6d): string.h
+  3	1	(indirect line string, offset: 0x76): stdlib.h
+  4	1	(indirect line string, offset: 0x7f): stdio.h
+  5	2	(indirect line string, offset: 0x87): stddef.h
+
+ Line Number Statements:
+  [0x00000052]  Set column to 25
+  [0x00000054]  Extended opcode 2: set Address to 0x1189
+  [0x0000005f]  Advance Line by 48 to 49
+  [0x00000061]  Copy
+  [0x00000062]  Set column to 5
+  [0x00000064]  Special opcode 118: advance Address by 8 to 0x1191 and Line by 1 to 50
+  [0x00000065]  Set column to 10
+  [0x00000067]  Special opcode 104: advance Address by 7 to 0x1198 and Line by 1 to 51
+  [0x00000068]  Special opcode 105: advance Address by 7 to 0x119f and Line by 2 to 53
+  [0x00000069]  Set column to 9
+  [0x0000006b]  Special opcode 103: advance Address by 7 to 0x11a6 and Line by 0 to 53
+  [0x0000006c]  Set column to 2
+  [0x0000006e]  Special opcode 131: advance Address by 9 to 0x11af and Line by 0 to 53
+  [0x0000006f]  Set column to 11
+  [0x00000071]  Special opcode 77: advance Address by 5 to 0x11b4 and Line by 2 to 55
+  [0x00000072]  Special opcode 105: advance Address by 7 to 0x11bb and Line by 2 to 57
+  [0x00000073]  Set column to 1
+  [0x00000075]  Special opcode 77: advance Address by 5 to 0x11c0 and Line by 2 to 59
+  [0x00000076]  Set column to 25
+  [0x00000078]  Special opcode 35: advance Address by 2 to 0x11c2 and Line by 2 to 61
+  [0x00000079]  Set column to 5
+  [0x0000007b]  Special opcode 118: advance Address by 8 to 0x11ca and Line by 1 to 62
+  [0x0000007c]  Set column to 10
+  [0x0000007e]  Special opcode 104: advance Address by 7 to 0x11d1 and Line by 1 to 63
+  [0x0000007f]  Set column to 11
+  [0x00000081]  Special opcode 105: advance Address by 7 to 0x11d8 and Line by 2 to 65
+  [0x00000082]  Set column to 10
+  [0x00000084]  Special opcode 103: advance Address by 7 to 0x11df and Line by 0 to 65
+  [0x00000085]  Set column to 2
+  [0x00000087]  Special opcode 89: advance Address by 6 to 0x11e5 and Line by 0 to 65
+  [0x00000088]  Set column to 11
+  [0x0000008a]  Advance PC by 41 to 0x120e
+  [0x0000008c]  Special opcode 7: advance Address by 0 to 0x120e and Line by 2 to 67
+  [0x0000008d]  Special opcode 105: advance Address by 7 to 0x1215 and Line by 2 to 69
+  [0x0000008e]  Set column to 1
+  [0x00000090]  Special opcode 77: advance Address by 5 to 0x121a and Line by 2 to 71
+  [0x00000091]  Set column to 35
+  [0x00000093]  Special opcode 36: advance Address by 2 to 0x121c and Line by 3 to 74
+  [0x00000094]  Set column to 5
+  [0x00000096]  Special opcode 174: advance Address by 12 to 0x1228 and Line by 1 to 75
+  [0x00000097]  Set column to 3
+  [0x00000099]  Special opcode 104: advance Address by 7 to 0x122f and Line by 1 to 76
+  [0x0000009a]  Advance PC by constant 17 to 0x1240
+  [0x0000009b]  Special opcode 48: advance Address by 3 to 0x1243 and Line by 1 to 77
+  [0x0000009c]  Set column to 6
+  [0x0000009e]  Special opcode 147: advance Address by 10 to 0x124d and Line by 2 to 79
+  [0x0000009f]  Set column to 5
+  [0x000000a1]  Special opcode 173: advance Address by 12 to 0x1259 and Line by 0 to 79
+  [0x000000a2]  Set column to 41
+  [0x000000a4]  Special opcode 132: advance Address by 9 to 0x1262 and Line by 1 to 80
+  [0x000000a5]  Set column to 6
+  [0x000000a7]  Special opcode 202: advance Address by 14 to 0x1270 and Line by 1 to 81
+  [0x000000a8]  Set column to 4
+  [0x000000aa]  Special opcode 104: advance Address by 7 to 0x1277 and Line by 1 to 82
+  [0x000000ab]  Advance PC by constant 17 to 0x1288
+  [0x000000ac]  Special opcode 48: advance Address by 3 to 0x128b and Line by 1 to 83
+  [0x000000ad]  Set column to 22
+  [0x000000af]  Special opcode 147: advance Address by 10 to 0x1295 and Line by 2 to 85
+  [0x000000b0]  Set column to 18
+  [0x000000b2]  Special opcode 103: advance Address by 7 to 0x129c and Line by 0 to 85
+  [0x000000b3]  Set column to 16
+  [0x000000b5]  Special opcode 47: advance Address by 3 to 0x129f and Line by 0 to 85
+  [0x000000b6]  Set column to 17
+  [0x000000b8]  Special opcode 90: advance Address by 6 to 0x12a5 and Line by 1 to 86
+  [0x000000b9]  Set column to 21
+  [0x000000bb]  Special opcode 103: advance Address by 7 to 0x12ac and Line by 0 to 86
+  [0x000000bc]  Set column to 9
+  [0x000000be]  Special opcode 61: advance Address by 4 to 0x12b0 and Line by 0 to 86
+  [0x000000bf]  Set column to 3
+  [0x000000c1]  Special opcode 62: advance Address by 4 to 0x12b4 and Line by 1 to 87
+  [0x000000c2]  Set column to 13
+  [0x000000c4]  Special opcode 215: advance Address by 15 to 0x12c3 and Line by 0 to 87
+  [0x000000c5]  Set column to 3
+  [0x000000c7]  Special opcode 117: advance Address by 8 to 0x12cb and Line by 0 to 87
+  [0x000000c8]  Set column to 11
+  [0x000000ca]  Special opcode 216: advance Address by 15 to 0x12da and Line by 1 to 88
+  [0x000000cb]  Set column to 6
+  [0x000000cd]  Special opcode 117: advance Address by 8 to 0x12e2 and Line by 0 to 88
+  [0x000000ce]  Set column to 4
+  [0x000000d0]  Special opcode 76: advance Address by 5 to 0x12e7 and Line by 1 to 89
+  [0x000000d1]  Advance PC by constant 17 to 0x12f8
+  [0x000000d2]  Special opcode 48: advance Address by 3 to 0x12fb and Line by 1 to 90
+  [0x000000d3]  Set column to 10
+  [0x000000d5]  Special opcode 147: advance Address by 10 to 0x1305 and Line by 2 to 92
+  [0x000000d6]  Set column to 9
+  [0x000000d8]  Special opcode 91: advance Address by 6 to 0x130b and Line by 2 to 94
+  [0x000000d9]  Set column to 1
+  [0x000000db]  Extended opcode 4: set Discriminator to 1
+  [0x000000df]  Special opcode 76: advance Address by 5 to 0x1310 and Line by 1 to 95
+  [0x000000e0]  Set column to 39
+  [0x000000e2]  Special opcode 36: advance Address by 2 to 0x1312 and Line by 3 to 98
+  [0x000000e3]  Set column to 5
+  [0x000000e5]  Special opcode 174: advance Address by 12 to 0x131e and Line by 1 to 99
+  [0x000000e6]  Set column to 3
+  [0x000000e8]  Special opcode 104: advance Address by 7 to 0x1325 and Line by 1 to 100
+  [0x000000e9]  Advance PC by constant 17 to 0x1336
+  [0x000000ea]  Special opcode 48: advance Address by 3 to 0x1339 and Line by 1 to 101
+  [0x000000eb]  Set column to 6
+  [0x000000ed]  Special opcode 147: advance Address by 10 to 0x1343 and Line by 2 to 103
+  [0x000000ee]  Set column to 5
+  [0x000000f0]  Special opcode 173: advance Address by 12 to 0x134f and Line by 0 to 103
+  [0x000000f1]  Set column to 45
+  [0x000000f3]  Special opcode 132: advance Address by 9 to 0x1358 and Line by 1 to 104
+  [0x000000f4]  Set column to 6
+  [0x000000f6]  Special opcode 202: advance Address by 14 to 0x1366 and Line by 1 to 105
+  [0x000000f7]  Set column to 4
+  [0x000000f9]  Special opcode 104: advance Address by 7 to 0x136d and Line by 1 to 106
+  [0x000000fa]  Advance PC by constant 17 to 0x137e
+  [0x000000fb]  Special opcode 48: advance Address by 3 to 0x1381 and Line by 1 to 107
+  [0x000000fc]  Set column to 22
+  [0x000000fe]  Special opcode 147: advance Address by 10 to 0x138b and Line by 2 to 109
+  [0x000000ff]  Set column to 18
+  [0x00000101]  Special opcode 103: advance Address by 7 to 0x1392 and Line by 0 to 109
+  [0x00000102]  Set column to 16
+  [0x00000104]  Special opcode 47: advance Address by 3 to 0x1395 and Line by 0 to 109
+  [0x00000105]  Set column to 17
+  [0x00000107]  Special opcode 90: advance Address by 6 to 0x139b and Line by 1 to 110
+  [0x00000108]  Set column to 21
+  [0x0000010a]  Special opcode 103: advance Address by 7 to 0x13a2 and Line by 0 to 110
+  [0x0000010b]  Set column to 9
+  [0x0000010d]  Special opcode 61: advance Address by 4 to 0x13a6 and Line by 0 to 110
+  [0x0000010e]  Set column to 3
+  [0x00000110]  Special opcode 62: advance Address by 4 to 0x13aa and Line by 1 to 111
+  [0x00000111]  Set column to 13
+  [0x00000113]  Special opcode 215: advance Address by 15 to 0x13b9 and Line by 0 to 111
+  [0x00000114]  Set column to 3
+  [0x00000116]  Special opcode 117: advance Address by 8 to 0x13c1 and Line by 0 to 111
+  [0x00000117]  Set column to 11
+  [0x00000119]  Special opcode 216: advance Address by 15 to 0x13d0 and Line by 1 to 112
+  [0x0000011a]  Set column to 6
+  [0x0000011c]  Special opcode 117: advance Address by 8 to 0x13d8 and Line by 0 to 112
+  [0x0000011d]  Set column to 4
+  [0x0000011f]  Special opcode 76: advance Address by 5 to 0x13dd and Line by 1 to 113
+  [0x00000120]  Advance PC by constant 17 to 0x13ee
+  [0x00000121]  Special opcode 48: advance Address by 3 to 0x13f1 and Line by 1 to 114
+  [0x00000122]  Set column to 10
+  [0x00000124]  Special opcode 147: advance Address by 10 to 0x13fb and Line by 2 to 116
+  [0x00000125]  Set column to 9
+  [0x00000127]  Special opcode 91: advance Address by 6 to 0x1401 and Line by 2 to 118
+  [0x00000128]  Set column to 1
+  [0x0000012a]  Extended opcode 4: set Discriminator to 1
+  [0x0000012e]  Special opcode 76: advance Address by 5 to 0x1406 and Line by 1 to 119
+  [0x0000012f]  Set column to 43
+  [0x00000131]  Special opcode 35: advance Address by 2 to 0x1408 and Line by 2 to 121
+  [0x00000132]  Set column to 5
+  [0x00000134]  Special opcode 174: advance Address by 12 to 0x1414 and Line by 1 to 122
+  [0x00000135]  Set column to 3
+  [0x00000137]  Special opcode 104: advance Address by 7 to 0x141b and Line by 1 to 123
+  [0x00000138]  Advance PC by constant 17 to 0x142c
+  [0x00000139]  Special opcode 48: advance Address by 3 to 0x142f and Line by 1 to 124
+  [0x0000013a]  Set column to 6
+  [0x0000013c]  Special opcode 147: advance Address by 10 to 0x1439 and Line by 2 to 126
+  [0x0000013d]  Set column to 5
+  [0x0000013f]  Special opcode 173: advance Address by 12 to 0x1445 and Line by 0 to 126
+  [0x00000140]  Set column to 22
+  [0x00000142]  Special opcode 132: advance Address by 9 to 0x144e and Line by 1 to 127
+  [0x00000143]  Set column to 6
+  [0x00000145]  Special opcode 230: advance Address by 16 to 0x145e and Line by 1 to 128
+  [0x00000146]  Set column to 4
+  [0x00000148]  Special opcode 104: advance Address by 7 to 0x1465 and Line by 1 to 129
+  [0x00000149]  Advance PC by constant 17 to 0x1476
+  [0x0000014a]  Special opcode 48: advance Address by 3 to 0x1479 and Line by 1 to 130
+  [0x0000014b]  Set column to 7
+  [0x0000014d]  Special opcode 147: advance Address by 10 to 0x1483 and Line by 2 to 132
+  [0x0000014e]  Set column to 6
+  [0x00000150]  Special opcode 229: advance Address by 16 to 0x1493 and Line by 0 to 132
+  [0x00000151]  Set column to 30
+  [0x00000153]  Special opcode 132: advance Address by 9 to 0x149c and Line by 1 to 133
+  [0x00000154]  Set column to 7
+  [0x00000156]  Advance PC by constant 17 to 0x14ad
+  [0x00000157]  Special opcode 48: advance Address by 3 to 0x14b0 and Line by 1 to 134
+  [0x00000158]  Set column to 5
+  [0x0000015a]  Special opcode 104: advance Address by 7 to 0x14b7 and Line by 1 to 135
+  [0x0000015b]  Advance PC by constant 17 to 0x14c8
+  [0x0000015c]  Special opcode 48: advance Address by 3 to 0x14cb and Line by 1 to 136
+  [0x0000015d]  Set column to 55
+  [0x0000015f]  Special opcode 147: advance Address by 10 to 0x14d5 and Line by 2 to 138
+  [0x00000160]  Set column to 7
+  [0x00000162]  Special opcode 202: advance Address by 14 to 0x14e3 and Line by 1 to 139
+  [0x00000163]  Set column to 5
+  [0x00000165]  Special opcode 104: advance Address by 7 to 0x14ea and Line by 1 to 140
+  [0x00000166]  Advance PC by constant 17 to 0x14fb
+  [0x00000167]  Special opcode 48: advance Address by 3 to 0x14fe and Line by 1 to 141
+  [0x00000168]  Set column to 19
+  [0x0000016a]  Special opcode 147: advance Address by 10 to 0x1508 and Line by 2 to 143
+  [0x0000016b]  Special opcode 160: advance Address by 11 to 0x1513 and Line by 1 to 144
+  [0x0000016c]  Set column to 18
+  [0x0000016e]  Special opcode 174: advance Address by 12 to 0x151f and Line by 1 to 145
+  [0x0000016f]  Set column to 22
+  [0x00000171]  Special opcode 103: advance Address by 7 to 0x1526 and Line by 0 to 145
+  [0x00000172]  Set column to 10
+  [0x00000174]  Special opcode 61: advance Address by 4 to 0x152a and Line by 0 to 145
+  [0x00000175]  Set column to 4
+  [0x00000177]  Special opcode 62: advance Address by 4 to 0x152e and Line by 1 to 146
+  [0x00000178]  Set column to 19
+  [0x0000017a]  Special opcode 215: advance Address by 15 to 0x153d and Line by 0 to 146
+  [0x0000017b]  Set column to 4
+  [0x0000017d]  Special opcode 117: advance Address by 8 to 0x1545 and Line by 0 to 146
+  [0x0000017e]  Set column to 17
+  [0x00000180]  Special opcode 216: advance Address by 15 to 0x1554 and Line by 1 to 147
+  [0x00000181]  Set column to 7
+  [0x00000183]  Special opcode 117: advance Address by 8 to 0x155c and Line by 0 to 147
+  [0x00000184]  Set column to 5
+  [0x00000186]  Special opcode 76: advance Address by 5 to 0x1561 and Line by 1 to 148
+  [0x00000187]  Advance PC by constant 17 to 0x1572
+  [0x00000188]  Special opcode 48: advance Address by 3 to 0x1575 and Line by 1 to 149
+  [0x00000189]  Set column to 4
+  [0x0000018b]  Special opcode 147: advance Address by 10 to 0x157f and Line by 2 to 151
+  [0x0000018c]  Special opcode 174: advance Address by 12 to 0x158b and Line by 1 to 152
+  [0x0000018d]  Set column to 11
+  [0x0000018f]  Special opcode 174: advance Address by 12 to 0x1597 and Line by 1 to 153
+  [0x00000190]  Set column to 54
+  [0x00000192]  Special opcode 133: advance Address by 9 to 0x15a0 and Line by 2 to 155
+  [0x00000193]  Set column to 6
+  [0x00000195]  Special opcode 202: advance Address by 14 to 0x15ae and Line by 1 to 156
+  [0x00000196]  Set column to 4
+  [0x00000198]  Special opcode 104: advance Address by 7 to 0x15b5 and Line by 1 to 157
+  [0x00000199]  Advance PC by constant 17 to 0x15c6
+  [0x0000019a]  Special opcode 48: advance Address by 3 to 0x15c9 and Line by 1 to 158
+  [0x0000019b]  Set column to 18
+  [0x0000019d]  Special opcode 147: advance Address by 10 to 0x15d3 and Line by 2 to 160
+  [0x0000019e]  Special opcode 160: advance Address by 11 to 0x15de and Line by 1 to 161
+  [0x0000019f]  Set column to 17
+  [0x000001a1]  Special opcode 174: advance Address by 12 to 0x15ea and Line by 1 to 162
+  [0x000001a2]  Set column to 21
+  [0x000001a4]  Special opcode 103: advance Address by 7 to 0x15f1 and Line by 0 to 162
+  [0x000001a5]  Set column to 9
+  [0x000001a7]  Special opcode 61: advance Address by 4 to 0x15f5 and Line by 0 to 162
+  [0x000001a8]  Set column to 3
+  [0x000001aa]  Special opcode 62: advance Address by 4 to 0x15f9 and Line by 1 to 163
+  [0x000001ab]  Set column to 18
+  [0x000001ad]  Special opcode 215: advance Address by 15 to 0x1608 and Line by 0 to 163
+  [0x000001ae]  Set column to 3
+  [0x000001b0]  Special opcode 117: advance Address by 8 to 0x1610 and Line by 0 to 163
+  [0x000001b1]  Set column to 16
+  [0x000001b3]  Special opcode 216: advance Address by 15 to 0x161f and Line by 1 to 164
+  [0x000001b4]  Set column to 6
+  [0x000001b6]  Special opcode 117: advance Address by 8 to 0x1627 and Line by 0 to 164
+  [0x000001b7]  Set column to 4
+  [0x000001b9]  Special opcode 76: advance Address by 5 to 0x162c and Line by 1 to 165
+  [0x000001ba]  Advance PC by constant 17 to 0x163d
+  [0x000001bb]  Special opcode 48: advance Address by 3 to 0x1640 and Line by 1 to 166
+  [0x000001bc]  Set column to 3
+  [0x000001be]  Special opcode 147: advance Address by 10 to 0x164a and Line by 2 to 168
+  [0x000001bf]  Set column to 10
+  [0x000001c1]  Special opcode 174: advance Address by 12 to 0x1656 and Line by 1 to 169
+  [0x000001c2]  Set column to 9
+  [0x000001c4]  Special opcode 91: advance Address by 6 to 0x165c and Line by 2 to 171
+  [0x000001c5]  Set column to 1
+  [0x000001c7]  Extended opcode 4: set Discriminator to 2
+  [0x000001cb]  Special opcode 76: advance Address by 5 to 0x1661 and Line by 1 to 172
+  [0x000001cc]  Set column to 33
+  [0x000001ce]  Special opcode 35: advance Address by 2 to 0x1663 and Line by 2 to 174
+  [0x000001cf]  Set column to 5
+  [0x000001d1]  Special opcode 174: advance Address by 12 to 0x166f and Line by 1 to 175
+  [0x000001d2]  Set column to 3
+  [0x000001d4]  Special opcode 104: advance Address by 7 to 0x1676 and Line by 1 to 176
+  [0x000001d5]  Advance PC by constant 17 to 0x1687
+  [0x000001d6]  Special opcode 48: advance Address by 3 to 0x168a and Line by 1 to 177
+  [0x000001d7]  Set column to 10
+  [0x000001d9]  Special opcode 147: advance Address by 10 to 0x1694 and Line by 2 to 179
+  [0x000001da]  Set column to 6
+  [0x000001dc]  Special opcode 103: advance Address by 7 to 0x169b and Line by 0 to 179
+  [0x000001dd]  Set column to 17
+  [0x000001df]  Special opcode 47: advance Address by 3 to 0x169e and Line by 0 to 179
+  [0x000001e0]  Set column to 5
+  [0x000001e2]  Special opcode 75: advance Address by 5 to 0x16a3 and Line by 0 to 179
+  [0x000001e3]  Set column to 17
+  [0x000001e5]  Special opcode 118: advance Address by 8 to 0x16ab and Line by 1 to 180
+  [0x000001e6]  Set column to 21
+  [0x000001e8]  Special opcode 103: advance Address by 7 to 0x16b2 and Line by 0 to 180
+  [0x000001e9]  Set column to 9
+  [0x000001eb]  Special opcode 61: advance Address by 4 to 0x16b6 and Line by 0 to 180
+  [0x000001ec]  Set column to 7
+  [0x000001ee]  Special opcode 62: advance Address by 4 to 0x16ba and Line by 1 to 181
+  [0x000001ef]  Set column to 6
+  [0x000001f1]  Special opcode 173: advance Address by 12 to 0x16c6 and Line by 0 to 181
+  [0x000001f2]  Set column to 30
+  [0x000001f4]  Special opcode 132: advance Address by 9 to 0x16cf and Line by 1 to 182
+  [0x000001f5]  Set column to 7
+  [0x000001f7]  Special opcode 230: advance Address by 16 to 0x16df and Line by 1 to 183
+  [0x000001f8]  Set column to 5
+  [0x000001fa]  Special opcode 104: advance Address by 7 to 0x16e6 and Line by 1 to 184
+  [0x000001fb]  Advance PC by constant 17 to 0x16f7
+  [0x000001fc]  Special opcode 48: advance Address by 3 to 0x16fa and Line by 1 to 185
+  [0x000001fd]  Set column to 12
+  [0x000001ff]  Special opcode 147: advance Address by 10 to 0x1704 and Line by 2 to 187
+  [0x00000200]  Set column to 19
+  [0x00000202]  Special opcode 117: advance Address by 8 to 0x170c and Line by 0 to 187
+  [0x00000203]  Set column to 26
+  [0x00000205]  Special opcode 47: advance Address by 3 to 0x170f and Line by 0 to 187
+  [0x00000206]  Set column to 7
+  [0x00000208]  Special opcode 75: advance Address by 5 to 0x1714 and Line by 0 to 187
+  [0x00000209]  Set column to 41
+  [0x0000020b]  Special opcode 62: advance Address by 4 to 0x1718 and Line by 1 to 188
+  [0x0000020c]  Set column to 8
+  [0x0000020e]  Special opcode 202: advance Address by 14 to 0x1726 and Line by 1 to 189
+  [0x0000020f]  Set column to 6
+  [0x00000211]  Special opcode 104: advance Address by 7 to 0x172d and Line by 1 to 190
+  [0x00000212]  Advance PC by constant 17 to 0x173e
+  [0x00000213]  Special opcode 48: advance Address by 3 to 0x1741 and Line by 1 to 191
+  [0x00000214]  Set column to 18
+  [0x00000216]  Special opcode 147: advance Address by 10 to 0x174b and Line by 2 to 193
+  [0x00000217]  Set column to 22
+  [0x00000219]  Special opcode 160: advance Address by 11 to 0x1756 and Line by 1 to 194
+  [0x0000021a]  Set column to 16
+  [0x0000021c]  Special opcode 117: advance Address by 8 to 0x175e and Line by 0 to 194
+  [0x0000021d]  Set column to 12
+  [0x0000021f]  Special opcode 118: advance Address by 8 to 0x1766 and Line by 1 to 195
+  [0x00000220]  Set column to 9
+  [0x00000222]  Special opcode 93: advance Address by 6 to 0x176c and Line by 4 to 199
+  [0x00000223]  Set column to 1
+  [0x00000225]  Special opcode 76: advance Address by 5 to 0x1771 and Line by 1 to 200
+  [0x00000226]  Set column to 31
+  [0x00000228]  Special opcode 35: advance Address by 2 to 0x1773 and Line by 2 to 202
+  [0x00000229]  Set column to 5
+  [0x0000022b]  Special opcode 174: advance Address by 12 to 0x177f and Line by 1 to 203
+  [0x0000022c]  Set column to 3
+  [0x0000022e]  Special opcode 104: advance Address by 7 to 0x1786 and Line by 1 to 204
+  [0x0000022f]  Advance PC by constant 17 to 0x1797
+  [0x00000230]  Special opcode 48: advance Address by 3 to 0x179a and Line by 1 to 205
+  [0x00000231]  Set column to 6
+  [0x00000233]  Special opcode 148: advance Address by 10 to 0x17a4 and Line by 3 to 208
+  [0x00000234]  Set column to 5
+  [0x00000236]  Special opcode 173: advance Address by 12 to 0x17b0 and Line by 0 to 208
+  [0x00000237]  Set column to 24
+  [0x00000239]  Special opcode 132: advance Address by 9 to 0x17b9 and Line by 1 to 209
+  [0x0000023a]  Set column to 6
+  [0x0000023c]  Special opcode 230: advance Address by 16 to 0x17c9 and Line by 1 to 210
+  [0x0000023d]  Set column to 4
+  [0x0000023f]  Special opcode 104: advance Address by 7 to 0x17d0 and Line by 1 to 211
+  [0x00000240]  Advance PC by constant 17 to 0x17e1
+  [0x00000241]  Special opcode 48: advance Address by 3 to 0x17e4 and Line by 1 to 212
+  [0x00000242]  Set column to 37
+  [0x00000244]  Special opcode 147: advance Address by 10 to 0x17ee and Line by 2 to 214
+  [0x00000245]  Set column to 6
+  [0x00000247]  Special opcode 202: advance Address by 14 to 0x17fc and Line by 1 to 215
+  [0x00000248]  Set column to 4
+  [0x0000024a]  Special opcode 104: advance Address by 7 to 0x1803 and Line by 1 to 216
+  [0x0000024b]  Advance PC by constant 17 to 0x1814
+  [0x0000024c]  Special opcode 48: advance Address by 3 to 0x1817 and Line by 1 to 217
+  [0x0000024d]  Set column to 21
+  [0x0000024f]  Special opcode 147: advance Address by 10 to 0x1821 and Line by 2 to 219
+  [0x00000250]  Set column to 16
+  [0x00000252]  Special opcode 103: advance Address by 7 to 0x1828 and Line by 0 to 219
+  [0x00000253]  Set column to 19
+  [0x00000255]  Special opcode 90: advance Address by 6 to 0x182e and Line by 1 to 220
+  [0x00000256]  Set column to 14
+  [0x00000258]  Special opcode 117: advance Address by 8 to 0x1836 and Line by 0 to 220
+  [0x00000259]  Set column to 3
+  [0x0000025b]  Special opcode 118: advance Address by 8 to 0x183e and Line by 1 to 221
+  [0x0000025c]  Set column to 10
+  [0x0000025e]  Special opcode 174: advance Address by 12 to 0x184a and Line by 1 to 222
+  [0x0000025f]  Set column to 6
+  [0x00000261]  Special opcode 133: advance Address by 9 to 0x1853 and Line by 2 to 224
+  [0x00000262]  Set column to 5
+  [0x00000264]  Special opcode 173: advance Address by 12 to 0x185f and Line by 0 to 224
+  [0x00000265]  Set column to 24
+  [0x00000267]  Special opcode 132: advance Address by 9 to 0x1868 and Line by 1 to 225
+  [0x00000268]  Set column to 6
+  [0x0000026a]  Special opcode 230: advance Address by 16 to 0x1878 and Line by 1 to 226
+  [0x0000026b]  Set column to 4
+  [0x0000026d]  Special opcode 104: advance Address by 7 to 0x187f and Line by 1 to 227
+  [0x0000026e]  Advance PC by constant 17 to 0x1890
+  [0x0000026f]  Special opcode 48: advance Address by 3 to 0x1893 and Line by 1 to 228
+  [0x00000270]  Set column to 37
+  [0x00000272]  Special opcode 147: advance Address by 10 to 0x189d and Line by 2 to 230
+  [0x00000273]  Set column to 6
+  [0x00000275]  Special opcode 202: advance Address by 14 to 0x18ab and Line by 1 to 231
+  [0x00000276]  Set column to 4
+  [0x00000278]  Special opcode 104: advance Address by 7 to 0x18b2 and Line by 1 to 232
+  [0x00000279]  Advance PC by constant 17 to 0x18c3
+  [0x0000027a]  Special opcode 48: advance Address by 3 to 0x18c6 and Line by 1 to 233
+  [0x0000027b]  Set column to 21
+  [0x0000027d]  Special opcode 147: advance Address by 10 to 0x18d0 and Line by 2 to 235
+  [0x0000027e]  Set column to 16
+  [0x00000280]  Special opcode 103: advance Address by 7 to 0x18d7 and Line by 0 to 235
+  [0x00000281]  Set column to 19
+  [0x00000283]  Special opcode 90: advance Address by 6 to 0x18dd and Line by 1 to 236
+  [0x00000284]  Set column to 14
+  [0x00000286]  Special opcode 117: advance Address by 8 to 0x18e5 and Line by 0 to 236
+  [0x00000287]  Set column to 3
+  [0x00000289]  Special opcode 118: advance Address by 8 to 0x18ed and Line by 1 to 237
+  [0x0000028a]  Set column to 10
+  [0x0000028c]  Special opcode 174: advance Address by 12 to 0x18f9 and Line by 1 to 238
+  [0x0000028d]  Set column to 9
+  [0x0000028f]  Special opcode 92: advance Address by 6 to 0x18ff and Line by 3 to 241
+  [0x00000290]  Set column to 1
+  [0x00000292]  Special opcode 76: advance Address by 5 to 0x1904 and Line by 1 to 242
+  [0x00000293]  Set column to 31
+  [0x00000295]  Special opcode 35: advance Address by 2 to 0x1906 and Line by 2 to 244
+  [0x00000296]  Set column to 5
+  [0x00000298]  Special opcode 174: advance Address by 12 to 0x1912 and Line by 1 to 245
+  [0x00000299]  Set column to 3
+  [0x0000029b]  Special opcode 104: advance Address by 7 to 0x1919 and Line by 1 to 246
+  [0x0000029c]  Advance PC by constant 17 to 0x192a
+  [0x0000029d]  Special opcode 48: advance Address by 3 to 0x192d and Line by 1 to 247
+  [0x0000029e]  Set column to 6
+  [0x000002a0]  Special opcode 147: advance Address by 10 to 0x1937 and Line by 2 to 249
+  [0x000002a1]  Set column to 5
+  [0x000002a3]  Special opcode 173: advance Address by 12 to 0x1943 and Line by 0 to 249
+  [0x000002a4]  Set column to 22
+  [0x000002a6]  Special opcode 132: advance Address by 9 to 0x194c and Line by 1 to 250
+  [0x000002a7]  Set column to 6
+  [0x000002a9]  Special opcode 230: advance Address by 16 to 0x195c and Line by 1 to 251
+  [0x000002aa]  Set column to 4
+  [0x000002ac]  Special opcode 104: advance Address by 7 to 0x1963 and Line by 1 to 252
+  [0x000002ad]  Advance PC by constant 17 to 0x1974
+  [0x000002ae]  Special opcode 48: advance Address by 3 to 0x1977 and Line by 1 to 253
+  [0x000002af]  Set column to 37
+  [0x000002b1]  Special opcode 147: advance Address by 10 to 0x1981 and Line by 2 to 255
+  [0x000002b2]  Set column to 6
+  [0x000002b4]  Special opcode 202: advance Address by 14 to 0x198f and Line by 1 to 256
+  [0x000002b5]  Set column to 4
+  [0x000002b7]  Special opcode 104: advance Address by 7 to 0x1996 and Line by 1 to 257
+  [0x000002b8]  Advance PC by constant 17 to 0x19a7
+  [0x000002b9]  Special opcode 48: advance Address by 3 to 0x19aa and Line by 1 to 258
+  [0x000002ba]  Set column to 13
+  [0x000002bc]  Special opcode 147: advance Address by 10 to 0x19b4 and Line by 2 to 260
+  [0x000002bd]  Set column to 7
+  [0x000002bf]  Special opcode 160: advance Address by 11 to 0x19bf and Line by 1 to 261
+  [0x000002c0]  Set column to 6
+  [0x000002c2]  Special opcode 229: advance Address by 16 to 0x19cf and Line by 0 to 261
+  [0x000002c3]  Set column to 24
+  [0x000002c5]  Special opcode 76: advance Address by 5 to 0x19d4 and Line by 1 to 262
+  [0x000002c6]  Set column to 7
+  [0x000002c8]  Advance PC by constant 17 to 0x19e5
+  [0x000002c9]  Special opcode 48: advance Address by 3 to 0x19e8 and Line by 1 to 263
+  [0x000002ca]  Set column to 5
+  [0x000002cc]  Special opcode 104: advance Address by 7 to 0x19ef and Line by 1 to 264
+  [0x000002cd]  Advance PC by constant 17 to 0x1a00
+  [0x000002ce]  Special opcode 48: advance Address by 3 to 0x1a03 and Line by 1 to 265
+  [0x000002cf]  Set column to 15
+  [0x000002d1]  Special opcode 147: advance Address by 10 to 0x1a0d and Line by 2 to 267
+  [0x000002d2]  Set column to 20
+  [0x000002d4]  Special opcode 174: advance Address by 12 to 0x1a19 and Line by 1 to 268
+  [0x000002d5]  Set column to 15
+  [0x000002d7]  Special opcode 117: advance Address by 8 to 0x1a21 and Line by 0 to 268
+  [0x000002d8]  Set column to 4
+  [0x000002da]  Special opcode 118: advance Address by 8 to 0x1a29 and Line by 1 to 269
+  [0x000002db]  Special opcode 174: advance Address by 12 to 0x1a35 and Line by 1 to 270
+  [0x000002dc]  Set column to 11
+  [0x000002de]  Special opcode 174: advance Address by 12 to 0x1a41 and Line by 1 to 271
+  [0x000002df]  Set column to 14
+  [0x000002e1]  Special opcode 91: advance Address by 6 to 0x1a47 and Line by 2 to 273
+  [0x000002e2]  Set column to 19
+  [0x000002e4]  Special opcode 174: advance Address by 12 to 0x1a53 and Line by 1 to 274
+  [0x000002e5]  Set column to 14
+  [0x000002e7]  Special opcode 117: advance Address by 8 to 0x1a5b and Line by 0 to 274
+  [0x000002e8]  Set column to 3
+  [0x000002ea]  Special opcode 118: advance Address by 8 to 0x1a63 and Line by 1 to 275
+  [0x000002eb]  Set column to 10
+  [0x000002ed]  Special opcode 174: advance Address by 12 to 0x1a6f and Line by 1 to 276
+  [0x000002ee]  Set column to 9
+  [0x000002f0]  Special opcode 91: advance Address by 6 to 0x1a75 and Line by 2 to 278
+  [0x000002f1]  Set column to 1
+  [0x000002f3]  Special opcode 76: advance Address by 5 to 0x1a7a and Line by 1 to 279
+  [0x000002f4]  Set column to 33
+  [0x000002f6]  Special opcode 35: advance Address by 2 to 0x1a7c and Line by 2 to 281
+  [0x000002f7]  Set column to 5
+  [0x000002f9]  Special opcode 174: advance Address by 12 to 0x1a88 and Line by 1 to 282
+  [0x000002fa]  Set column to 3
+  [0x000002fc]  Special opcode 104: advance Address by 7 to 0x1a8f and Line by 1 to 283
+  [0x000002fd]  Advance PC by constant 17 to 0x1aa0
+  [0x000002fe]  Special opcode 48: advance Address by 3 to 0x1aa3 and Line by 1 to 284
+  [0x000002ff]  Set column to 6
+  [0x00000301]  Special opcode 147: advance Address by 10 to 0x1aad and Line by 2 to 286
+  [0x00000302]  Set column to 5
+  [0x00000304]  Special opcode 173: advance Address by 12 to 0x1ab9 and Line by 0 to 286
+  [0x00000305]  Set column to 29
+  [0x00000307]  Special opcode 76: advance Address by 5 to 0x1abe and Line by 1 to 287
+  [0x00000308]  Set column to 6
+  [0x0000030a]  Special opcode 230: advance Address by 16 to 0x1ace and Line by 1 to 288
+  [0x0000030b]  Set column to 4
+  [0x0000030d]  Special opcode 104: advance Address by 7 to 0x1ad5 and Line by 1 to 289
+  [0x0000030e]  Advance PC by constant 17 to 0x1ae6
+  [0x0000030f]  Special opcode 48: advance Address by 3 to 0x1ae9 and Line by 1 to 290
+  [0x00000310]  Set column to 42
+  [0x00000312]  Special opcode 147: advance Address by 10 to 0x1af3 and Line by 2 to 292
+  [0x00000313]  Set column to 6
+  [0x00000315]  Special opcode 202: advance Address by 14 to 0x1b01 and Line by 1 to 293
+  [0x00000316]  Set column to 4
+  [0x00000318]  Special opcode 104: advance Address by 7 to 0x1b08 and Line by 1 to 294
+  [0x00000319]  Advance PC by constant 17 to 0x1b19
+  [0x0000031a]  Special opcode 48: advance Address by 3 to 0x1b1c and Line by 1 to 295
+  [0x0000031b]  Set column to 19
+  [0x0000031d]  Special opcode 147: advance Address by 10 to 0x1b26 and Line by 2 to 297
+  [0x0000031e]  Set column to 10
+  [0x00000320]  Special opcode 160: advance Address by 11 to 0x1b31 and Line by 1 to 298
+  [0x00000321]  Set column to 9
+  [0x00000323]  Special opcode 91: advance Address by 6 to 0x1b37 and Line by 2 to 300
+  [0x00000324]  Set column to 1
+  [0x00000326]  Special opcode 76: advance Address by 5 to 0x1b3c and Line by 1 to 301
+  [0x00000327]  Set column to 24
+  [0x00000329]  Special opcode 35: advance Address by 2 to 0x1b3e and Line by 2 to 303
+  [0x0000032a]  Set column to 5
+  [0x0000032c]  Special opcode 174: advance Address by 12 to 0x1b4a and Line by 1 to 304
+  [0x0000032d]  Set column to 3
+  [0x0000032f]  Special opcode 104: advance Address by 7 to 0x1b51 and Line by 1 to 305
+  [0x00000330]  Advance PC by constant 17 to 0x1b62
+  [0x00000331]  Special opcode 48: advance Address by 3 to 0x1b65 and Line by 1 to 306
+  [0x00000332]  Set column to 23
+  [0x00000334]  Special opcode 147: advance Address by 10 to 0x1b6f and Line by 2 to 308
+  [0x00000335]  Set column to 2
+  [0x00000337]  Special opcode 230: advance Address by 16 to 0x1b7f and Line by 1 to 309
+  [0x00000338]  Set column to 1
+  [0x0000033a]  Advance PC by constant 17 to 0x1b90
+  [0x0000033b]  Special opcode 48: advance Address by 3 to 0x1b93 and Line by 1 to 310
+  [0x0000033c]  Set column to 12
+  [0x0000033e]  Special opcode 49: advance Address by 3 to 0x1b96 and Line by 2 to 312
+  [0x0000033f]  Set column to 8
+  [0x00000341]  Special opcode 118: advance Address by 8 to 0x1b9e and Line by 1 to 313
+  [0x00000342]  Special opcode 160: advance Address by 11 to 0x1ba9 and Line by 1 to 314
+  [0x00000343]  Special opcode 160: advance Address by 11 to 0x1bb4 and Line by 1 to 315
+  [0x00000344]  Special opcode 160: advance Address by 11 to 0x1bbf and Line by 1 to 316
+  [0x00000345]  Set column to 2
+  [0x00000347]  Special opcode 161: advance Address by 11 to 0x1bca and Line by 2 to 318
+  [0x00000348]  Set column to 9
+  [0x0000034a]  Special opcode 175: advance Address by 12 to 0x1bd6 and Line by 2 to 320
+  [0x0000034b]  Set column to 1
+  [0x0000034d]  Special opcode 76: advance Address by 5 to 0x1bdb and Line by 1 to 321
+  [0x0000034e]  Advance PC by 2 to 0x1bdd
+  [0x00000350]  Extended opcode 1: End of Sequence
+
+
+Contents of the .debug_str section (loaded from a.out):
+
+  0x00000000 73747274 00706172 73650073 697a655f strt.parse.size_
+  0x00000010 74006e65 78740069 74656d00 73746172 t.next.item.star
+  0x00000020 74006d6f 64696669 6572004d 6f646966 t.modifier.Modif
+  0x00000030 69657200 4974656d 00737472 6c656e00 ier.Item.strlen.
+  0x00000040 65786974 00546572 6d006772 6f757000 exit.Term.group.
+  0x00000050 73686f72 7420756e 7369676e 65642069 short unsigned i
+  0x00000060 6e740063 6f6e7465 6e740047 4e552043 nt.content.GNU C
+  0x00000070 31372031 322e322e 30202d6d 74756e65 17 12.2.0 -mtune
+  0x00000080 3d67656e 65726963 202d6d61 7263683d =generic -march=
+  0x00000090 7838362d 3634202d 67202d66 6173796e x86-64 -g -fasyn
+  0x000000a0 6368726f 6e6f7573 2d756e77 696e642d chronous-unwind-
+  0x000000b0 7461626c 65730075 6e736967 6e656420 tables.unsigned 
+  0x000000c0 63686172 00537461 72740066 696e5f65 char.Start.fin_e
+  0x000000d0 78707200 45787072 65737369 6f6e0047 xpr.Expression.G
+  0x000000e0 726f7570 0069735f 73796d62 6f6c006d roup.is_symbol.m
+  0x000000f0 61696e00 4e756d62 6572006c 6f6e6720 ain.Number.long 
+  0x00000100 6c6f6e67 20756e73 69676e65 6420696e long unsigned in
+  0x00000110 74007265 73756c74 00616674 65720069 t.result.after.i
+  0x00000120 735f6e75 6d626572 00667265 65006c6f s_number.free.lo
+  0x00000130 6e67206c 6f6e6720 696e7400 6f726465 ng long int.orde
+  0x00000140 7265645f 63617365 006d656d 63707900 red_case.memcpy.
+  0x00000150 7072696e 74660062 7261636b 65745f63 printf.bracket_c
+  0x00000160 61736531 00627261 636b6574 5f636173 ase1.bracket_cas
+  0x00000170 65320073 686f7274 20696e74 00657870 e2.short int.exp
+  0x00000180 72657373 696f6e00 6d616c6c 6f630074 ression.malloc.t
+  0x00000190 65726d00 73696d70 6c655f63 61736500 erm.simple_case.
+
+Contents of the .debug_line_str section (loaded from a.out):
+
+  0x00000000 63616c63 332e6300 2f686f6d 652f6c61 calc3.c./home/la
+  0x00000010 7a2f446f 63756d65 6e74732f 50657273 z/Documents/Pers
+  0x00000020 6f6e616c 5f576f72 6b2f432f 63616c63 onal_Work/C/calc
+  0x00000030 756c6174 6f72002f 7573722f 696e636c ulator./usr/incl
+  0x00000040 75646500 2f757372 2f6c6962 2f676363 ude./usr/lib/gcc
+  0x00000050 2f783836 5f36342d 6c696e75 782d676e /x86_64-linux-gn
+  0x00000060 752f3132 2f696e63 6c756465 00737472 u/12/include.str
+  0x00000070 696e672e 68007374 646c6962 2e680073 ing.h.stdlib.h.s
+  0x00000080 7464696f 2e680073 74646465 662e6800 tdio.h.stddef.h.
+

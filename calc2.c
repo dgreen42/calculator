@@ -161,13 +161,17 @@ void parser(char** exp) {
 	
 }
 
+
+
+
 int main() {
 	char *simple_case = "1+2";
 	char *ordered_case = "4+6/2";
 	char *bracket_case1 = "(3-1)";
 	char *bracket_case2 = "2+(3-1)";
 
-	struct Expression *expr = expression(&simple_case);
+	
+
 
 
 }
